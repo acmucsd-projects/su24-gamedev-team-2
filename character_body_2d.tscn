@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://bn444gmyu2bqk"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_goy4u"]
+[ext_resource type="Texture2D" uid="uid://ddw7bcfrba4kq" path="res://Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="3_eivtd"]
+[ext_resource type="Texture2D" uid="uid://b1daaidekmbx3" path="res://Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="4_n420k"]
+[ext_resource type="Texture2D" uid="uid://e166kbj04cji" path="res://Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="5_02eqr"]
+[ext_resource type="Texture2D" uid="uid://6kvu0w0fpt36" path="res://Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="6_e0tsr"]
+[ext_resource type="Texture2D" uid="uid://chqbqcvm82ggu" path="res://Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="7_u1uw0"]
+[ext_resource type="Texture2D" uid="uid://cnpde8amea8a5" path="res://Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="8_xhm8a"]
+[ext_resource type="Texture2D" uid="uid://u35mkfxrwnu6" path="res://Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="9_j3rtf"]
+[ext_resource type="Texture2D" uid="uid://du0n4angumi15" path="res://Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="10_xcig5"]
+[ext_resource type="Texture2D" uid="uid://b7pk51dewniol" path="res://Captain Clown Nose without Sword/02-Run/Run 01.png" id="11_44l8n"]
+[ext_resource type="Texture2D" uid="uid://ddht7i8tqd8j3" path="res://Captain Clown Nose without Sword/02-Run/Run 02.png" id="12_jwdcg"]
+[ext_resource type="Texture2D" uid="uid://dk6cq47siqrdo" path="res://Captain Clown Nose without Sword/02-Run/Run 03.png" id="13_utayj"]
+[ext_resource type="Texture2D" uid="uid://ceaqmqxjef0dr" path="res://Captain Clown Nose without Sword/02-Run/Run 04.png" id="14_cgfu3"]
+[ext_resource type="Texture2D" uid="uid://drk0pndkovt5" path="res://Captain Clown Nose without Sword/02-Run/Run 05.png" id="15_bnsv2"]
+[ext_resource type="Texture2D" uid="uid://4es00335pj15" path="res://Captain Clown Nose without Sword/02-Run/Run 06.png" id="16_5s8rq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_026i4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eivtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n420k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_02eqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e0tsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u1uw0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xhm8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j3rtf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xcig5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_44l8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jwdcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_utayj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cgfu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bnsv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5s8rq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_44l8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jwdcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_utayj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cgfu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bnsv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5s8rq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_goy4u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.83, 1.83)
+sprite_frames = SubResource("SpriteFrames_026i4")
+animation = &"walk"
+autoplay = "Idle"
+
+[node name="dash_again" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="dash_duration" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="dash_again" to="." method="_on_dash_again_timeout"]
+[connection signal="timeout" from="dash_duration" to="." method="_on_timer_timeout"]

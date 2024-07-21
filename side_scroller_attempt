@@ -1,0 +1,135 @@
+#extends CharacterBody2D
+##
+##@export var MAX_SPEED = 300
+##@export var ACCELERATION = 1500
+##@export var FRICTION = 1200
+##@export var JUMP_STRENGTH = 1500
+##@export var MAX_JUMP = 2
+##@export var DOUBLE_JUMP_STRENGTH = 1200
+##@export var GRAVITY = 4500
+##@export var SPEED = 100
+##@export var axis = Vector2.ZERO
+##@onready var animation = $AnimationPlayer
+#@export var JUMP_FORCE : int = 255
+#@export var GRAVITY : int = 900
+##var velocity = Vector2.ZERO
+##var jumps = 0
+##
+##func _physics_process(delta):
+	##move(delta)
+##
+### Called every frame. 'delta' is the elapsed time since the previous frame.
+##func get_input_axis():
+	### -1 when left, 1 when right
+	##axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	##axis.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+	##return axis.normalized()
+##
+##func move(delta):
+	##axis = get_input_axis()
+	##if axis == Vector2.ZERO:
+		###apply friction
+		##apply_friction(FRICTION * delta)
+		##if velocity.length() < 0.1:
+			##animation.stop()
+	##else:
+		###apply movement
+		##animation.play("walk")
+		##apply_movement(axis * ACCELERATION * delta)
+	##
+	### Apply gravity
+	##velocity.y += GRAVITY * delta
+	##
+	### Jumping logic
+	##if is_on_floor():
+		##jumps = 0
+		##if Input.is_action_just_pressed("jump"):
+			##velocity.y = -JUMP_STRENGTH
+			##jumps += 1
+	##elif jumps < MAX_JUMP and Input.is_action_just_pressed("jump"):
+		##velocity.y = -DOUBLE_JUMP_STRENGTH
+		##jumps += 1
+	##
+	###velocity = move_and_slide(velocity, Vector2.UP)
+##
+##func apply_friction(amount):
+	##if velocity.length() > amount:
+		##velocity -= velocity.normalized() * amount
+	##else:
+		##velocity = Vector2.ZERO
+	##
+##func apply_movement(accel):
+	##velocity += accel
+	##velocity = velocity.limit_length(MAX_SPEED)
+#extends CharacterBody2D
+#@export var SPEED : int = 200
+#
+##@export var JUMP_FORCE : int = 255
+##@export var GRAVITY : int = 900
+#
+#func _physics_process(delta):
+	#var motion = Vector2.ZERO
+	#if Input.is_action_pressed("move_right"):
+		#motion.x = SPEED
+		#$AnimatedSprite2D.play('walk')
+		#$AnimatedSprite2D.flip_h = false
+	#elif Input.is_action_pressed("move_left"):
+		#motion.x = -SPEED
+		#$AnimatedSprite2D.play('walk')
+		#$AnimatedSprite2D.flip_h = true
+	#elif Input.is_action_pressed("move_down"):
+		#motion.y = SPEED
+		#$AnimatedSprite2D.play('walk')
+	#elif Input.is_action_pressed("move_up"):
+		#motion.y = -SPEED
+		#$AnimatedSprite2D.play('walk')
+	#else:
+		#$AnimatedSprite2D.play('Idle')
+	#velocity = motion
+	#move_and_slide()
+	##var direction = Input.get_axis("Left","Right")
+	##
+	##if direction:
+		##
+		##velocity.x = SPEED * direction
+		##
+		##if is_on_floor():
+			##
+			##$AnimatedSprite2D.play("run")
+		##
+	##else:
+		##
+		##velocity.x = 0
+		##
+		##if is_on_floor():
+			##
+			##$AnimatedSprite2D.play("Idle")
+	#
+	## Rotate
+	#
+	##if direction == 1:
+		##$AnimatedSprite2D.flip_h = false
+	##elif direction == -1:
+		##$AnimatedSprite2D.flip_h = true
+		#
+	#
+	## Gravity
+	#
+	##if not is_on_floor():
+		##
+		##velocity.y += GRAVITY * delta
+		##
+		##if velocity.y > 0:
+			##
+			##$AnimatedSprite2D.play("fall")
+	#
+	## Jump
+	#
+	##if is_on_floor():
+		##
+		##if Input.is_action_just_pressed("Jump"):
+			##
+			##velocity.y -= JUMP_FORCE
+			##$AnimatedSprite2D.play("Jump")
+	##
+	##
