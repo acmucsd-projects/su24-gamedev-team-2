@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://dacjdmw5p2jpi"]
+
+[ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="1_2f8yc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qawu"]
+size = Vector2(1154, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ese3"]
+size = Vector2(37, 485.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqdla"]
+size = Vector2(37, 84.3125)
+
+[node name="world" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2f8yc")]
+position = Vector2(402, 322)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(575, 559.5)
+shape = SubResource("RectangleShape2D_1qawu")
+
+[node name="left wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-21, 237)
+shape = SubResource("RectangleShape2D_8ese3")
+
+[node name="right wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1175, 239)
+shape = SubResource("RectangleShape2D_8ese3")
+
+[node name="obstacle" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(600, 483)
+shape = SubResource("RectangleShape2D_cqdla")
+
+[node name="obstacle2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(692, 465)
+shape = SubResource("RectangleShape2D_cqdla")
+
+[node name="obstacle3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(781, 442)
+shape = SubResource("RectangleShape2D_cqdla")
+
+[node name="obstacle4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(866, 469)
+shape = SubResource("RectangleShape2D_cqdla")
+
+[node name="obstacle5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(964, 488)
+shape = SubResource("RectangleShape2D_cqdla")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -6.0
+offset_top = 471.0
+offset_right = 1165.0
+offset_bottom = 668.0
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 587.0
+offset_top = -31.0
+offset_right = 625.0
+offset_bottom = 9.0
+
+[node name="Panel2" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = -25.0
+offset_right = 989.0
+offset_bottom = 15.0
+
+[node name="Panel3" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 853.0
+offset_top = -44.0
+offset_right = 891.0
+offset_bottom = 15.0
+
+[node name="Panel4" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = -71.0
+offset_right = 806.0
+offset_bottom = 16.0
+
+[node name="Panel5" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = -48.0
+offset_right = 717.0
+offset_bottom = 4.0
