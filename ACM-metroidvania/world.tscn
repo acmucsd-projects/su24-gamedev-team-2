@@ -21,7 +21,6 @@ texture = ExtResource("2_0vyy0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_v1d5x")
-metadata/_edit_group_ = true
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-6, 601)
