@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0trhmi80pcau"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_fhawp"]
+[ext_resource type="Texture2D" uid="uid://dc2y0rcqw481d" path="res://icon.svg" id="2_4f01m"]
+
+[sub_resource type="GDScript" id="GDScript_cw2b1"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd3ny"]
+size = Vector2(128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lebwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkqk0"]
+bg_color = Color(0.573272, 0.0614563, 0.630996, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt6y3"]
+size = Vector2(1163, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hov7"]
+size = Vector2(102.5, 103.5)
+
+[node name="World" type="Node2D"]
+script = SubResource("GDScript_cw2b1")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(330, 448)
+script = ExtResource("1_fhawp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_4f01m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_xd3ny")
+
+[node name="ProgressBar" type="ProgressBar" parent="Player"]
+offset_left = -120.0
+offset_top = -108.0
+offset_right = 136.0
+offset_bottom = -81.0
+theme_override_styles/background = SubResource("StyleBoxTexture_lebwg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pkqk0")
+value = 100.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-1, 555)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 87.0
+color = Color(0.211765, 0.862745, 0.290196, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(571.5, 38.5)
+shape = SubResource("RectangleShape2D_wt6y3")
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(-7, -6)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Spike"]
+offset_left = 760.0
+offset_top = 451.0
+offset_right = 857.0
+offset_bottom = 554.0
+color = Color(0.341176, 0.0862745, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(807.75, 498.75)
+shape = SubResource("RectangleShape2D_6hov7")
+
+[connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
