@@ -548,5 +548,3 @@ libraries = {
 "": SubResource("AnimationLibrary_csnao")
 }
 autoplay = "idle"
-
-[node name="AnimationTree" type="AnimationTree" parent="."]

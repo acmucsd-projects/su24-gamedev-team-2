@@ -11,8 +11,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_striking = false  # Flag to track if strike animation is active
 
-@onready var anim = get_node("AnimationPlayer")
+@onready var anim = $AnimationPlayer
 @onready var skeleton = get_node("../../enemies/skeleton")
+
+func _ready() -> void:
+	if Global.player_position:
+		self.position = Global.player_position
+	if Global.player_health:
+		self.health = Global.player_health
+	if Global.player_direction_left:
+		$AnimatedSprite2D.flip_h = true
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -20,9 +28,11 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 	if health <= 0:
+		Global.player_health = 0
 		anim.play("death")
 		await anim.animation_finished
-		self.queue_free()
+		respawn_scene()
+		#self.queue_free()
 		
 	if health < current_health and health > 0:
 		velocity.x = 0
@@ -41,7 +51,7 @@ func _physics_process(delta):
 					is_striking = false
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_space") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		anim.play("jump")
 	
@@ -53,9 +63,11 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if direction == 1:
-		get_node("AnimatedSprite2D").flip_h = false
+		$AnimatedSprite2D.flip_h = false
+		Global.player_direction_left = false
 	if direction == -1:
-		get_node("AnimatedSprite2D").flip_h = true
+		$AnimatedSprite2D.flip_h = true
+		Global.player_direction_left = true
 	
 	if direction:
 		if is_striking and is_on_floor():
@@ -74,6 +86,18 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	Global.player_position = self.position
+	if health > 0:
+		Global.player_health = health
+	
 	if is_striking and anim.current_animation != "strike":
 		is_striking = false
+		
+func respawn_scene() -> void:
+	if get_tree() and anim.current_animation != "death":
+		get_tree().change_scene_to_file("res://respawn.tscn")
+		return
+	else:
+		print(":(")
+	
 

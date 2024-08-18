@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://enemy/skeleton.gd" id="1_v5ttj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb0lt"]
-size = Vector2(28, 64)
+size = Vector2(42, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4onye"]
 atlas = ExtResource("1_isreu")
@@ -357,6 +357,7 @@ size = Vector2(124, 64)
 script = ExtResource("1_v5ttj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 32)
 shape = SubResource("RectangleShape2D_qb0lt")
 metadata/_edit_lock_ = true
 

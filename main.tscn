@@ -6,22 +6,20 @@
 script = ExtResource("1_fage4")
 
 [node name="play" type="Button" parent="."]
-offset_left = 410.0
-offset_top = 75.0
-offset_right = 688.0
-offset_bottom = 275.0
-theme_override_font_sizes/font_size = 40
+offset_left = 725.0
+offset_top = 162.0
+offset_right = 1555.0
+offset_bottom = 501.0
+theme_override_font_sizes/font_size = 80
 text = "play"
-metadata/_edit_lock_ = true
 
 [node name="quit" type="Button" parent="."]
-offset_left = 411.0
-offset_top = 356.0
-offset_right = 690.0
-offset_bottom = 544.0
-theme_override_font_sizes/font_size = 40
+offset_left = 730.0
+offset_top = 674.0
+offset_right = 1543.0
+offset_bottom = 1023.0
+theme_override_font_sizes/font_size = 80
 text = "quit"
-metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="play" to="play" method="_on_pressed"]
