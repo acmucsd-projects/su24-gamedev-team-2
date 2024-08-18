@@ -13,6 +13,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps=0
 var max_jumps=2
 
+var DTR=false
+var DTL=true
+
+
+
+	
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -52,3 +58,9 @@ func _physics_process(delta):
 func _on_spike_body_entered(body):
 	if body.name == "Player":
 		$ProgressBar.value -= 10
+		
+
+
+#func _on_timer_timeout():
+	#DTL=false
+	#DTR=false

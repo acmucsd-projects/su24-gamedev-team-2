@@ -22,6 +22,6 @@ offset_bottom = 454.0
 theme_override_font_sizes/font_size = 47
 text = "QUIT"
 
-[connection signal="pressed" from="play" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

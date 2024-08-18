@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c24k27fosds4a"]
+
+[ext_resource type="Script" path="res://npc/scripts/npc1.gd" id="1_cbrlx"]
+[ext_resource type="Texture2D" uid="uid://b3e2ywgwdjpvn" path="res://npc/sprites/npc_sprite_02.png" id="2_s2cm6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77ejd"]
+radius = 6.99914
+height = 23.997
+
+[node name="Npc1" type="CharacterBody2D"]
+position = Vector2(53, 9)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_cbrlx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-52, -22)
+scale = Vector2(1, 1.01562)
+texture = ExtResource("2_s2cm6")
+hframes = 15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-53, -3)
+rotation = -1.5865
+shape = SubResource("CapsuleShape2D_77ejd")
+debug_color = Color(0, 0.6, 0.701961, 0)
+metadata/_edit_group_ = true

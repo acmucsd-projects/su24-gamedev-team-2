@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bro8uj6hthbs6"]
+
+[node name="Npc1BehaviorWander" type="Node2D"]
