@@ -548,3 +548,12 @@ libraries = {
 "": SubResource("AnimationLibrary_csnao")
 }
 autoplay = "idle"
+
+[node name="dash_duration" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="dash_again" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="dash_duration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="dash_again" to="." method="_on_dash_again_timeout"]
