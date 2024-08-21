@@ -105,13 +105,6 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y == 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
 			anim.play("idle")
-	if Input.is_action_just_pressed("dash") and CAN_DASH:
-		DASHING = true
-		CAN_DASH = false
-		$dash_duration.start()
-		$dash_again.start()
-	
-	move_and_slide()
 	
 	Global.player_position = self.position
 	if health > 0:
@@ -125,6 +118,7 @@ func _physics_process(delta):
 		CAN_DASH = false
 		$dash_duration.start()
 		$dash_again.start()
+	move_and_slide()
 
 
 func respawn_scene() -> void:
