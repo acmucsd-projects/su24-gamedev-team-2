@@ -39,6 +39,12 @@ script = ExtResource("1_0h435")
 top_level = true
 position = Vector2(196, 295)
 
+[node name="dash_again" type="Timer" parent="player/player"]
+wait_time = 0.6
+
+[node name="dash_duration" type="Timer" parent="player/player"]
+wait_time = 0.2
+
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="skeleton" parent="enemies" instance=ExtResource("2_u36gk")]
@@ -99,6 +105,8 @@ theme_override_font_sizes/font_size = 25
 text = "HP"
 script = SubResource("GDScript_5f6qr")
 
+[connection signal="timeout" from="player/player/dash_again" to="player/player" method="_on_timer_timeout"]
+[connection signal="timeout" from="player/player/dash_duration" to="player/player" method="_on_dash_duration_timeout"]
 [connection signal="body_entered" from="StaticBody2D/shop/shop (detection)" to="." method="_on_shop_detection_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/shop/shop (detection)" to="." method="_on_shop_detection_body_exited"]
 [connection signal="mouse_entered" from="StaticBody2D/shop/shop (detection)/shop panel" to="." method="_on_shop_panel_mouse_entered"]
