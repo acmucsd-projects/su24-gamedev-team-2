@@ -9,18 +9,11 @@ var DASH_SPEED = 600
 var JUMP_COUNT = 0
 var MAX_JUMP = 2
 
-#@export var JUMP_FORCE: int = -300
-var JUMP_COUNT = 0
-var MAX_JUMP = 2
-
-@export var DASH_SPEED = 600
 var DASHING = false
 var CAN_DASH = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var DASHING = false
-var CAN_DASH = true
 var is_striking = false  # Flag to track if strike animation is active
 
 @onready var anim = $AnimationPlayer
