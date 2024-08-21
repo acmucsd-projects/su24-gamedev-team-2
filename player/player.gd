@@ -6,6 +6,8 @@ const SPEED = 200
 const STRIKE_SPEED = 0.0
 const JUMP_VELOCITY = -400.0
 var DASH_SPEED = 600
+var JUMP_COUNT = 0
+var MAX_JUMP = 2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,6 +30,13 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	if is_on_floor():
+		JUMP_COUNT = 0
+	if Input.is_action_just_pressed("ui_space") and JUMP_COUNT < MAX_JUMP:
+		anim.play("jump")
+		velocity.y = JUMP_VELOCITY
+		JUMP_COUNT += 1
+		
 		
 	if health <= 0:
 		Global.player_health = 0
@@ -51,12 +60,7 @@ func _physics_process(delta):
 				skeleton.health -= 5
 				if skeleton.health <= 0:
 					is_striking = false
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_space") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		anim.play("jump")
-	
+
 	if velocity.y > 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
 		anim.play("fall")
 	
