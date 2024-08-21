@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 var health = 100
 var current_health = health
-const SPEED = 300.0
+const SPEED = 200
 const STRIKE_SPEED = 0.0
 const JUMP_VELOCITY = -400.0
+var DASH_SPEED = 600
+var JUMP_COUNT = 0
+var MAX_JUMP = 2
 
 #@export var JUMP_FORCE: int = -300
 var JUMP_COUNT = 0
@@ -16,7 +19,8 @@ var CAN_DASH = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var DASHING = false
+var CAN_DASH = true
 var is_striking = false  # Flag to track if strike animation is active
 
 @onready var anim = $AnimationPlayer
@@ -34,6 +38,13 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	if is_on_floor():
+		JUMP_COUNT = 0
+	if Input.is_action_just_pressed("ui_space") and JUMP_COUNT < MAX_JUMP:
+		anim.play("jump")
+		velocity.y = JUMP_VELOCITY
+		JUMP_COUNT += 1
+		
 		
 	if is_on_floor():
 		JUMP_COUNT = 0
@@ -60,17 +71,14 @@ func _physics_process(delta):
 				skeleton.health -= 5
 				if skeleton.health <= 0:
 					is_striking = false
-	
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_space"): #and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-		#anim.play("jump")
+
 		
 	if Input.is_action_just_pressed("ui_space") and JUMP_COUNT < MAX_JUMP:
 		anim.play('jump')
 		velocity.y = JUMP_VELOCITY
 		JUMP_COUNT += 1
 	
+
 	if velocity.y > 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
 		anim.play("fall")
 	
@@ -90,10 +98,13 @@ func _physics_process(delta):
 			velocity.x = direction * DASH_SPEED
 		elif is_striking and is_on_floor():
 			velocity.x = direction * STRIKE_SPEED
+		if DASHING:
+			velocity.x = direction * DASH_SPEED
 		else:
 			velocity.x = direction * SPEED
 		if velocity.y == 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
 			anim.play("run")
+		
 	else:
 		if is_striking and is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, STRIKE_SPEED)
@@ -101,6 +112,11 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y == 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
 			anim.play("idle")
+	if Input.is_action_just_pressed("dash") and CAN_DASH:
+		DASHING = true
+		CAN_DASH = false
+		$dash_duration.start()
+		$dash_again.start()
 	
 	move_and_slide()
 	
@@ -127,6 +143,7 @@ func respawn_scene() -> void:
 
 func _on_dash_duration_timeout():
 	DASHING = false
-
+	
 func _on_dash_again_timeout():
 	CAN_DASH = true
+
