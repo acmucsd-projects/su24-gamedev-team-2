@@ -44,6 +44,7 @@ func _physics_process(delta):
 		
 	if health <= 0:
 		Global.player_health = 0
+		$PlayerBar.value=0
 		anim.play("death")
 		await anim.animation_finished
 		respawn_scene()
@@ -54,6 +55,7 @@ func _physics_process(delta):
 		anim.play("hurt")
 		await anim.animation_finished
 		current_health = health
+		$PlayerBar.value=health
 	
 	if Input.is_action_just_pressed("ui_left_click"):
 		if anim.current_animation != "strike":
@@ -109,6 +111,7 @@ func _physics_process(delta):
 	Global.player_position = self.position
 	if health > 0:
 		Global.player_health = health
+		$PlayerBar.value=health
 	
 	if is_striking and anim.current_animation != "strike":
 		is_striking = false

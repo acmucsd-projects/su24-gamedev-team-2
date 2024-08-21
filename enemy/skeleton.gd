@@ -14,6 +14,7 @@ func _ready():
 		self.position = Global.enemy_position
 	if Global.enemy_health:
 		self.health = Global.enemy_health
+		$SkeletonBar.value=self.health
 	if Global.enemy_direction_left:
 		$AnimatedSprite2D.flip_h = true
 	get_node("AnimatedSprite2D").play("idle")
@@ -30,10 +31,12 @@ func _physics_process(delta):
 		get_node("AnimatedSprite2D").play("hurt")
 		await get_node("AnimatedSprite2D").animation_finished
 		current_health = health
+		$SkeletonBar.value=current_health
 	
 	if health <= 0:
 		Global.enemy_respawn = false
 		Global.enemy_health = 0
+		$SkeletonBar.value=0
 		get_node("AnimatedSprite2D").play("death")
 		await get_node("AnimatedSprite2D").animation_finished
 		self.queue_free()
@@ -59,6 +62,7 @@ func _physics_process(delta):
 	Global.enemy_position = self.position
 	if health > 0:
 		Global.enemy_health = self.health
+		$SkeletonBar.value=current_health
 
 func _on_area_2d_player_detection_body_entered(body):
 	if body.name == "player":
