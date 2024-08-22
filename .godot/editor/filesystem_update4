@@ -1,6 +1,6 @@
+res://player/player.tscn
 res://main.tscn
 res://world.tscn
-res://player/player.tscn
 res://enemy/skeleton.tscn
 res://player/player.gd
-res://world.gd
+res://enemy/skeleton.gd

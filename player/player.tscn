@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://d3878vqnvxs82"]
+[gd_scene load_steps=50 format=3 uid="uid://d3878vqnvxs82"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_pnvwa"]
 [ext_resource type="Texture2D" uid="uid://geqh1teab7u1" path="res://AnimationSheet_Character.png" id="2_suq8o"]
@@ -523,6 +523,9 @@ _data = {
 "strike": SubResource("Animation_fc7ci")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6f86"]
+bg_color = Color(0.941176, 0.0352941, 0.129412, 1)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_pnvwa")
 
@@ -554,6 +557,14 @@ wait_time = 0.2
 
 [node name="dash_again" type="Timer" parent="."]
 wait_time = 0.6
+
+[node name="PlayerBar" type="ProgressBar" parent="."]
+offset_left = -52.0
+offset_top = -54.0
+offset_right = 52.0
+offset_bottom = -27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_a6f86")
+value = 100.0
 
 [connection signal="timeout" from="dash_duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="dash_again" to="." method="_on_dash_again_timeout"]
