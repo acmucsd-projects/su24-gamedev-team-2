@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafwo2icd161t"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_fage4"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_fage4")
+
+[node name="play" type="Button" parent="."]
+offset_left = 725.0
+offset_top = 162.0
+offset_right = 1555.0
+offset_bottom = 501.0
+theme_override_font_sizes/font_size = 80
+text = "play"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 730.0
+offset_top = 674.0
+offset_right = 1543.0
+offset_bottom = 1023.0
+theme_override_font_sizes/font_size = 80
+text = "quit"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="quit" to="play" method="_on_quit_pressed"]

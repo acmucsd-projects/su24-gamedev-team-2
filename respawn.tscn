@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6rfouvb2scit"]
+
+[ext_resource type="Script" path="res://respawn.gd" id="1_k2qrn"]
+
+[node name="respawn" type="Node2D"]
+script = ExtResource("1_k2qrn")
+
+[node name="respawn" type="Button" parent="."]
+offset_left = 753.0
+offset_top = 148.0
+offset_right = 1523.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 80
+text = "respawn"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 757.0
+offset_top = 646.0
+offset_right = 1549.0
+offset_bottom = 989.0
+theme_override_font_sizes/font_size = 80
+text = "exit"
+
+[connection signal="pressed" from="respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
