@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dacjdmw5p2jpi"]
+[gd_scene load_steps=10 format=3 uid="uid://dacjdmw5p2jpi"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_0h435"]
 [ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="1_2f8yc"]
 [ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/skeleton.tscn" id="2_u36gk"]
+[ext_resource type="Script" path="res://town.gd" id="4_icwhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qawu"]
 size = Vector2(1154, 171)
@@ -37,7 +38,7 @@ script = ExtResource("1_0h435")
 
 [node name="player" parent="player" instance=ExtResource("1_2f8yc")]
 top_level = true
-position = Vector2(196, 295)
+position = Vector2(143, 437)
 
 [node name="dash_again2" type="Timer" parent="player/player"]
 wait_time = 0.6
@@ -48,7 +49,7 @@ wait_time = 0.2
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="skeleton" parent="enemies" instance=ExtResource("2_u36gk")]
-position = Vector2(847, 222)
+position = Vector2(763, 436)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -64,24 +65,26 @@ shape = SubResource("RectangleShape2D_8ese3")
 position = Vector2(1175, 239)
 shape = SubResource("RectangleShape2D_8ese3")
 
-[node name="shop" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="town" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(51, 419)
 shape = SubResource("RectangleShape2D_5gsot")
 
-[node name="shop label" type="Label" parent="StaticBody2D/shop"]
+[node name="town label" type="Label" parent="StaticBody2D/town"]
 offset_left = -20.0
 offset_top = -13.0
 offset_right = 20.0
 offset_bottom = 10.0
-text = "shop"
+text = "town
+"
 
-[node name="shop (detection)" type="Area2D" parent="StaticBody2D/shop"]
+[node name="shop (detection)" type="Area2D" parent="StaticBody2D/town"]
+script = ExtResource("4_icwhm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/shop/shop (detection)"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/town/shop (detection)"]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_tgynu")
 
-[node name="shop panel" type="Panel" parent="StaticBody2D/shop/shop (detection)"]
+[node name="town panel" type="Panel" parent="StaticBody2D/town/shop (detection)"]
 offset_left = -35.0
 offset_top = -51.0
 offset_right = 35.0
@@ -105,7 +108,9 @@ theme_override_font_sizes/font_size = 25
 text = "HP"
 script = SubResource("GDScript_5f6qr")
 
-[connection signal="body_entered" from="StaticBody2D/shop/shop (detection)" to="." method="_on_shop_detection_body_entered"]
-[connection signal="body_exited" from="StaticBody2D/shop/shop (detection)" to="." method="_on_shop_detection_body_exited"]
-[connection signal="mouse_entered" from="StaticBody2D/shop/shop (detection)/shop panel" to="." method="_on_shop_panel_mouse_entered"]
-[connection signal="mouse_exited" from="StaticBody2D/shop/shop (detection)/shop panel" to="." method="_on_shop_panel_mouse_exited"]
+[connection signal="body_entered" from="StaticBody2D/town/shop (detection)" to="StaticBody2D/town/shop (detection)" method="_on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/town/shop (detection)" to="StaticBody2D/town/shop (detection)" method="_on_body_exited"]
+[connection signal="mouse_entered" from="StaticBody2D/town/shop (detection)" to="StaticBody2D/town/shop (detection)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D/town/shop (detection)" to="StaticBody2D/town/shop (detection)" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="StaticBody2D/town/shop (detection)/town panel" to="." method="_on_shop_panel_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D/town/shop (detection)/town panel" to="." method="_on_shop_panel_mouse_exited"]

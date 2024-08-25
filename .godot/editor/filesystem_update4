@@ -1,6 +1,15 @@
-res://player/player.tscn
 res://main.tscn
 res://world.tscn
+res://player/player.tscn
 res://enemy/skeleton.tscn
+res://town.gd
+res://world.gd
+res://town.tscn
+res://exit.gd
 res://player/player.gd
-res://enemy/skeleton.gd
+res://shop.gd
+res://Armor.gd
+res://armor.tscn
+res://armor.gd
+res://armor._in.gd
+res://player/player_town.gd

@@ -1,2 +1,10 @@
+CollisionShape2D
+Area2D
+StaticBody2D
+Node2D
+RichTextLabel
+Label
+Panel
+Camera2D
 ProgressBar
 Timer
