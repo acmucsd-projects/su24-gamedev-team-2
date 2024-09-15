@@ -15,7 +15,7 @@ size = Vector2(37, 485.25)
 size = Vector2(70, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgynu"]
-size = Vector2(131, 102)
+size = Vector2(119, 102)
 
 [sub_resource type="GDScript" id="GDScript_5f6qr"]
 script/source = "extends Label
@@ -38,7 +38,7 @@ script = ExtResource("1_0h435")
 
 [node name="player" parent="player" instance=ExtResource("1_2f8yc")]
 top_level = true
-position = Vector2(143, 437)
+position = Vector2(153, 437)
 
 [node name="dash_again2" type="Timer" parent="player/player"]
 wait_time = 0.6
@@ -74,6 +74,7 @@ offset_left = -20.0
 offset_top = -13.0
 offset_right = 20.0
 offset_bottom = 10.0
+scale = Vector2(1.04671, 1.07799)
 text = "town
 "
 
@@ -81,7 +82,7 @@ text = "town
 script = ExtResource("4_icwhm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/town/shop (detection)"]
-position = Vector2(-1.5, 0)
+position = Vector2(9.5, 0)
 shape = SubResource("RectangleShape2D_tgynu")
 
 [node name="town panel" type="Panel" parent="StaticBody2D/town/shop (detection)"]

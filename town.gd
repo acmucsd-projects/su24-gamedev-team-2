@@ -7,6 +7,10 @@ var can_open = false
 func _process(delta):
 	if in_range and can_open:
 		if Input.is_action_just_pressed("ui_right_click"):
+			var player = get_node("player/player")
+			player.position = Vector2(140,437)
+
+
 			get_tree().change_scene_to_file("res://town.tscn")
 
 
