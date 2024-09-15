@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://dku4culf1g32u"]
+
+[ext_resource type="Script" path="res://lava.gd" id="1_hqslg"]
+[ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="2_07gme"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7p7ml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_romv4"]
+size = Vector2(2015.75, 123.5)
+
+[sub_resource type="Gradient" id="Gradient_i4g1m"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.97, 1)
+colors = PackedColorArray(1, 0.792157, 0.109804, 1, 0.6, 0.054, 0.054, 1, 0.77, 0.77, 0.77, 0.913725)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pdoqf"]
+frequency = 0.004
+offset = Vector3(0, 63733.2, 12745.6)
+fractal_type = 3
+fractal_octaves = 2
+fractal_lacunarity = 1.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u83ja"]
+in_3d_space = true
+color_ramp = SubResource("Gradient_i4g1m")
+noise = SubResource("FastNoiseLite_pdoqf")
+
+[sub_resource type="GDScript" id="GDScript_cqy56"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cyjy"]
+size = Vector2(382, 105.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olbp5"]
+size = Vector2(399.5, 118.5)
+
+[node name="Pre-castle" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_7p7ml")
+metadata/_edit_group_ = true
+
+[node name="floor" type="CollisionShape2D" parent="floor"]
+position = Vector2(1289.88, 1232.75)
+shape = SubResource("RectangleShape2D_romv4")
+
+[node name="floor2" type="ColorRect" parent="floor"]
+offset_left = 279.0
+offset_top = 1177.0
+offset_right = 2298.0
+offset_bottom = 1295.0
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="Lava" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hqslg")
+speed = Vector3(0, 50, 10)
+
+[node name="TextureRect" type="TextureRect" parent="Lava"]
+layout_mode = 0
+offset_left = -235.0
+offset_top = 1177.0
+offset_right = 277.0
+offset_bottom = 1689.0
+texture = SubResource("NoiseTexture2D_u83ja")
+script = SubResource("GDScript_cqy56")
+
+[node name="checkpoint" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="checkpoint" type="CollisionPolygon2D" parent="checkpoint"]
+position = Vector2(613.288, 1048.59)
+scale = Vector2(13.047, 13.0337)
+polygon = PackedVector2Array(0, -9, -10, 0, -10, 1, -10, 10, -10, 10, 11, 10, 11, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="checkpoint"]
+polygon = PackedVector2Array(613, 933, 483, 1049, 482, 1180, 756, 1178, 758, 1049)
+
+[node name="block1" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="block1" type="CollisionPolygon2D" parent="block1"]
+position = Vector2(1073, 391)
+scale = Vector2(15.0781, 13.3561)
+polygon = PackedVector2Array(-10, -10, -5, -10, -5, -5, 0, -5, 0, 0, 5, 0, 5, 5, 10, 5, 10, 9, 2, 9, 2, 4, -1, 4, -1, 6, -10, 6)
+
+[node name="Polygon2D" type="Polygon2D" parent="block1"]
+polygon = PackedVector2Array(923, 258, 922, 472, 1058, 472, 1058, 445, 1103, 446, 1103, 510, 1225, 510, 1223, 458, 1150, 458, 1148, 390, 1074, 392, 1072, 323, 999, 324, 997, 256)
+
+[node name="block2" type="StaticBody2D" parent="."]
+position = Vector2(105, 7)
+metadata/_edit_group_ = true
+
+[node name="block2" type="CollisionPolygon2D" parent="block2"]
+position = Vector2(1058, 1031)
+scale = Vector2(14.7188, 13.7143)
+polygon = PackedVector2Array(-10, 10, -10, 6, -5, 6, -5, 2, 2, 2, 2, -4, 10, -4, 10, 2, 7, 2, 7, 6, 10, 6, 10, 10)
+
+[node name="Polygon2D" type="Polygon2D" parent="block2"]
+polygon = PackedVector2Array(913, 1115, 913, 1166, 1205, 1166, 1204, 1113, 1165, 1112, 1164, 1055, 1203, 1055, 1203, 975, 1089, 978, 1088, 1052, 980, 1051, 980, 1112)
+
+[node name="block3" type="StaticBody2D" parent="."]
+position = Vector2(8, 4)
+metadata/_edit_group_ = true
+
+[node name="block3" type="CollisionShape2D" parent="block3"]
+position = Vector2(1614, 799)
+shape = SubResource("RectangleShape2D_0cyjy")
+
+[node name="ColorRect" type="ColorRect" parent="block3"]
+offset_left = 1422.0
+offset_top = 750.0
+offset_right = 1802.0
+offset_bottom = 855.0
+
+[node name="block4" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="block4" type="CollisionShape2D" parent="block4"]
+position = Vector2(1991, 413)
+shape = SubResource("RectangleShape2D_olbp5")
+
+[node name="ColorRect" type="ColorRect" parent="block4"]
+offset_left = 1803.0
+offset_top = 363.0
+offset_right = 2183.0
+offset_bottom = 468.0
+
+[node name="player" parent="." instance=ExtResource("2_07gme")]

@@ -28,6 +28,7 @@ func _ready() -> void:
 		$AnimatedSprite2D.flip_h = true
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

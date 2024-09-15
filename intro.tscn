@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://3kkx5g2om8ta"]
+
+[ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/skeleton.tscn" id="1_62prp"]
+[ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="1_tqa8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku54d"]
+size = Vector2(2313, 215)
+
+[node name="Intro" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(-25, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(1155, 1180)
+shape = SubResource("RectangleShape2D_ku54d")
+
+[node name="ColorRect" type="ColorRect" parent="floor"]
+offset_left = 29.0
+offset_top = 1091.0
+offset_right = 2336.0
+offset_bottom = 1281.0
+
+[node name="player" parent="." instance=ExtResource("1_tqa8s")]
+
+[node name="skeleton" parent="." instance=ExtResource("1_62prp")]

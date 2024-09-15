@@ -1,2 +1,10 @@
+ColorRect
+CollisionShape2D
+StaticBody2D
+Area2D
+Polygon2D
+TextureRect
+Control
+CollisionPolygon2D
 ProgressBar
 Timer
