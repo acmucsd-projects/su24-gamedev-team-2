@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dacjdmw5p2jpi"]
+[gd_scene load_steps=11 format=3 uid="uid://dacjdmw5p2jpi"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_0h435"]
 [ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="1_2f8yc"]
 [ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/skeleton.tscn" id="2_u36gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qawu"]
-size = Vector2(1154, 171)
+size = Vector2(1173, 171)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ese3"]
 size = Vector2(37, 485.25)
@@ -15,6 +15,12 @@ size = Vector2(70, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgynu"]
 size = Vector2(131, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0875"]
+size = Vector2(81, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2d067"]
+size = Vector2(156, 123)
 
 [sub_resource type="GDScript" id="GDScript_5f6qr"]
 script/source = "extends Label
@@ -37,7 +43,7 @@ script = ExtResource("1_0h435")
 
 [node name="player" parent="player" instance=ExtResource("1_2f8yc")]
 top_level = true
-position = Vector2(196, 295)
+position = Vector2(203, 449)
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -45,9 +51,11 @@ position = Vector2(196, 295)
 position = Vector2(847, 222)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(575, 559.5)
+position = Vector2(580.5, 559.5)
 shape = SubResource("RectangleShape2D_1qawu")
 
 [node name="left wall" type="CollisionShape2D" parent="StaticBody2D"]
@@ -70,6 +78,8 @@ offset_bottom = 10.0
 text = "shop"
 
 [node name="shop (detection)" type="Area2D" parent="StaticBody2D/shop"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/shop/shop (detection)"]
 position = Vector2(-1.5, 0)
@@ -80,6 +90,34 @@ offset_left = -35.0
 offset_top = -51.0
 offset_right = 35.0
 offset_bottom = 52.0
+mouse_default_cursor_shape = 2
+
+[node name="lava zone" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1059, 410)
+shape = SubResource("RectangleShape2D_a0875")
+
+[node name="lava zone label" type="Label" parent="StaticBody2D/lava zone"]
+offset_left = -47.0
+offset_top = -23.0
+offset_right = 48.0
+offset_bottom = 39.0
+text = "teleport to
+lava zone"
+horizontal_alignment = 1
+
+[node name="lava zone (detection)" type="Area2D" parent="StaticBody2D/lava zone"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/lava zone/lava zone (detection)"]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_2d067")
+
+[node name="lava panel" type="Panel" parent="StaticBody2D/lava zone/lava zone (detection)"]
+offset_left = -40.0
+offset_top = -59.0
+offset_right = 41.0
+offset_bottom = 63.0
 mouse_default_cursor_shape = 2
 
 [node name="Panel" type="Panel" parent="."]
@@ -103,3 +141,7 @@ script = SubResource("GDScript_5f6qr")
 [connection signal="body_exited" from="StaticBody2D/shop/shop (detection)" to="." method="_on_shop_detection_body_exited"]
 [connection signal="mouse_entered" from="StaticBody2D/shop/shop (detection)/shop panel" to="." method="_on_shop_panel_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D/shop/shop (detection)/shop panel" to="." method="_on_shop_panel_mouse_exited"]
+[connection signal="body_entered" from="StaticBody2D/lava zone/lava zone (detection)" to="." method="_on_lava_zone_detection_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/lava zone/lava zone (detection)" to="." method="_on_lava_zone_detection_body_exited"]
+[connection signal="mouse_entered" from="StaticBody2D/lava zone/lava zone (detection)/lava panel" to="." method="_on_lava_panel_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D/lava zone/lava zone (detection)/lava panel" to="." method="_on_lava_panel_mouse_exited"]

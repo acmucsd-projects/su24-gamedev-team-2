@@ -1,6 +1,8 @@
 extends Node2D
 
-func _on_respawn_pressed():
+
+
+func _on_back_to_town_pressed():
 	Global.player_position = Vector2(0, 0)
 	Global.player_health = 100
 	Global.player_direction_left = false
@@ -16,5 +18,6 @@ func _on_respawn_pressed():
 	
 	get_tree().change_scene_to_file("res://world.tscn")
 
-func _on_exit_pressed():
-	get_tree().quit()
+
+func _on_next_level_pressed():
+	get_tree().change_scene_to_file("res://world.tscn")

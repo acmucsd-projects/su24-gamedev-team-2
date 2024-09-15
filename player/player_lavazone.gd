@@ -12,7 +12,7 @@ var MAX_JUMP = 2
 var DASHING = false
 var CAN_DASH = true
 
-var knockback_force : float = 200.0
+var knockback_force : float = 300.0
 var knockback_duration : float = 0.2
 var is_knocked_back : bool = false
 var knockback_direction : Vector2
@@ -25,7 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_striking = false  # Flag to track if strike animation is active
 
 @onready var anim = $AnimationPlayer
-@onready var skeleton = get_node("../../enemies/skeleton")
+@onready var skeleton = $"../../skeleton_boss"
 
 func _ready() -> void:
 	if Global.player_position:
@@ -81,6 +81,11 @@ func _physics_process(delta):
 			is_knocked_back = false
 			velocity = Vector2.ZERO
 	
+	#if Input.is_action_just_pressed("ui_left_click"):
+		#if anim.current_animation != "strike":
+			#anim.play("strike")
+			#is_striking = true  # Set flag to prevent other animations
+			
 	if Input.is_action_just_pressed("ui_left_click"):
 		if anim.current_animation != "strike":
 			anim.play("strike")
@@ -89,7 +94,7 @@ func _physics_process(delta):
 				var distance = skeleton.position - self.position
 				if abs(distance.x) <= 50:
 					#skeleton.health -= 5
-					var dir = (skeleton.position - self.position).normalized()
+					var dir = (skeleton.position - position).normalized()
 					skeleton.call("apply_knockback", dir * knockback_force)
 					if skeleton.health <= 0:
 						is_striking = false
@@ -164,10 +169,17 @@ func apply_knockback(direction: Vector2) -> void:
 	is_knocked_back = true
 	knockback_direction = direction
 	knockback_duration = 0.2  # Reset the duration
-
+	
 func invincibility() -> void:
 	invincible = true
 	invincibility_duration = 0.7
-
-func _on_area_2d_body_entered(_body):
-	return
+	
+#func _on_area_2d_body_entered(body):
+	#if body.name == "skeleton" or body.name == "@CharacterBody2D@2":
+		#if Input.is_action_just_pressed("ui_left_click") or is_striking:
+			#print("striking skeleton!")
+			#body.health -= 5
+			#var dir = (skeleton.position - position).normalized()
+			#body.call("apply_knockback", dir * knockback_force)
+			#if body.health <= 0:
+				#is_striking = false

@@ -1,10 +1,10 @@
-[gd_scene load_steps=51 format=3 uid="uid://lybotj3vh6v7"]
+[gd_scene load_steps=52 format=3 uid="uid://lybotj3vh6v7"]
 
-[ext_resource type="Texture2D" uid="uid://34v2m3edfkgx" path="res://Skeleton enemy.png" id="1_isreu"]
+[ext_resource type="Texture2D" uid="uid://34v2m3edfkgx" path="res://enemy/Skeleton enemy.png" id="1_isreu"]
 [ext_resource type="Script" path="res://enemy/skeleton.gd" id="1_v5ttj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb0lt"]
-size = Vector2(42, 0)
+size = Vector2(44, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4onye"]
 atlas = ExtResource("1_isreu")
@@ -280,7 +280,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"strike",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -303,7 +303,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"strike2",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -351,27 +351,32 @@ animations = [{
 radius = 266.002
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7847"]
-size = Vector2(124, 64)
+size = Vector2(100, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v4sy"]
+bg_color = Color(0.501961, 0.141176, 0.6, 1)
 
 [node name="skeleton" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_v5ttj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 32)
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_qb0lt")
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0.499999, 1.07288e-06)
 scale = Vector2(2.17188, 2.03125)
 sprite_frames = SubResource("SpriteFrames_o17jh")
-animation = &"idle"
+animation = &"strike"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
 [node name="Area2D (detection)" type="Area2D" parent="."]
-visible = false
+collision_layer = 7
+collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D (detection)"]
@@ -379,11 +384,23 @@ shape = SubResource("CircleShape2D_qfdxx")
 metadata/_edit_lock_ = true
 
 [node name="Area2D (strike)" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D (strike)"]
-position = Vector2(-1, 0)
+position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_v7847")
+metadata/_edit_lock_ = true
+
+[node name="SkeletonBar" type="ProgressBar" parent="."]
+offset_left = -61.0
+offset_top = -70.0
+offset_right = 62.0
+offset_bottom = -43.0
+theme_override_styles/background = SubResource("StyleBoxFlat_8v4sy")
+max_value = 20.0
+value = 20.0
 
 [connection signal="body_entered" from="Area2D (detection)" to="." method="_on_area_2d_player_detection_body_entered"]
 [connection signal="body_exited" from="Area2D (detection)" to="." method="_on_area_2d_player_detection_body_exited"]

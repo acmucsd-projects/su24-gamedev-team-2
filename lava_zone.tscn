@@ -1,0 +1,225 @@
+[gd_scene load_steps=22 format=3 uid="uid://cjwg4vp8v0uoc"]
+
+[ext_resource type="Texture2D" uid="uid://dbu0nqto3ojru" path="res://platform-lava-zone.png" id="1_k5epe"]
+[ext_resource type="Script" path="res://lava_zone.gd" id="1_q7ome"]
+[ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="2_4yvpt"]
+[ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/skeleton.tscn" id="4_8f5un"]
+[ext_resource type="Script" path="res://player/player_lavazone.gd" id="4_ck0vk"]
+[ext_resource type="Script" path="res://enemy/skeleton_lavazone.gd" id="6_utmt3"]
+[ext_resource type="Script" path="res://enemy spawner.gd" id="7_ghddh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak2ud"]
+size = Vector2(2316, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p8ap"]
+size = Vector2(5, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8ne3"]
+size = Vector2(10, 60.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e12k0"]
+size = Vector2(2312, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srmwd"]
+size = Vector2(55, 695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stj0s"]
+size = Vector2(45.5, 685.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gup"]
+size = Vector2(167.25, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48uio"]
+size = Vector2(218, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu76q"]
+size = Vector2(102.375, 9.12451)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pv2x"]
+size = Vector2(117.594, 11.5316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi8w"]
+size = Vector2(142, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spg6n"]
+size = Vector2(161, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bosbu"]
+size = Vector2(306, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojljr"]
+size = Vector2(2015, 28)
+
+[node name="lava zone" type="Node2D"]
+script = ExtResource("1_q7ome")
+
+[node name="Platform-lava-zone" type="Sprite2D" parent="."]
+position = Vector2(575.5, 345)
+scale = Vector2(0.330571, 0.34)
+texture = ExtResource("1_k5epe")
+metadata/_edit_lock_ = true
+
+[node name="player" type="Node2D" parent="."]
+
+[node name="player" parent="player" instance=ExtResource("2_4yvpt")]
+position = Vector2(2160, 217)
+script = ExtResource("4_ck0vk")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = 1101.0
+offset_right = 2306.0
+offset_bottom = 1306.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="lava" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1154, 637.5)
+shape = SubResource("RectangleShape2D_ak2ud")
+
+[node name="enemy walls" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="wall1" type="CollisionShape2D" parent="enemy walls"]
+position = Vector2(-0.5, 545)
+shape = SubResource("RectangleShape2D_5p8ap")
+
+[node name="wall2" type="CollisionShape2D" parent="enemy walls"]
+position = Vector2(299, 545.375)
+shape = SubResource("RectangleShape2D_t8ne3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="lava" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1153, 638)
+shape = SubResource("RectangleShape2D_e12k0")
+
+[node name="left wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-31.5, 337.5)
+shape = SubResource("RectangleShape2D_srmwd")
+
+[node name="right wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2342, 340)
+shape = SubResource("RectangleShape2D_stj0s")
+
+[node name="platform" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(210.375, 336.25)
+shape = SubResource("RectangleShape2D_g5gup")
+
+[node name="platform2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(671, 274.75)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(397.812, 446.438)
+shape = SubResource("RectangleShape2D_vu76q")
+
+[node name="platform4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1098.2, 400.234)
+shape = SubResource("RectangleShape2D_6pv2x")
+
+[node name="platform5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(809, 490)
+shape = SubResource("RectangleShape2D_cwi8w")
+
+[node name="platform6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(589.5, 583.5)
+shape = SubResource("RectangleShape2D_spg6n")
+
+[node name="platform7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(150, 583)
+shape = SubResource("RectangleShape2D_bosbu")
+
+[node name="platform8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1309, 579)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1578, 292)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1682, 449)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1350, 133)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2097, 496)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="platform13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2211, 251)
+shape = SubResource("RectangleShape2D_48uio")
+
+[node name="Panel" type="Panel" parent="StaticBody2D"]
+offset_left = 1199.0
+offset_top = 571.0
+offset_right = 1418.0
+offset_bottom = 588.0
+
+[node name="Panel2" type="Panel" parent="StaticBody2D"]
+offset_left = 1469.0
+offset_top = 284.0
+offset_right = 1688.0
+offset_bottom = 301.0
+
+[node name="Panel3" type="Panel" parent="StaticBody2D"]
+offset_left = 1572.0
+offset_top = 441.0
+offset_right = 1791.0
+offset_bottom = 458.0
+
+[node name="Panel4" type="Panel" parent="StaticBody2D"]
+offset_left = 1241.0
+offset_top = 124.0
+offset_right = 1460.0
+offset_bottom = 141.0
+
+[node name="Panel5" type="Panel" parent="StaticBody2D"]
+offset_left = 2100.0
+offset_top = 242.0
+offset_right = 2319.0
+offset_bottom = 259.0
+
+[node name="Panel6" type="Panel" parent="StaticBody2D"]
+offset_left = 1988.0
+offset_top = 487.0
+offset_right = 2207.0
+offset_bottom = 504.0
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+z_index = -1
+offset_left = 1153.0
+offset_top = 584.0
+offset_right = 2318.0
+offset_bottom = 686.0
+color = Color(0.851867, 0.12377, 0.201197, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1307.5, 583)
+shape = SubResource("RectangleShape2D_ojljr")
+
+[node name="skeleton_boss" parent="." instance=ExtResource("4_8f5un")]
+position = Vector2(99, 543)
+script = ExtResource("6_utmt3")
+knockback_force = 500.0
+
+[node name="enemy spawner" type="Node2D" parent="."]
+script = ExtResource("7_ghddh")
+enemy_scene = ExtResource("4_8f5un")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="enemy walls" to="." method="_on_enemy_walls_body_entered"]

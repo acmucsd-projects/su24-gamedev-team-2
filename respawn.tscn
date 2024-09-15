@@ -16,8 +16,8 @@ text = "respawn"
 [node name="exit" type="Button" parent="."]
 offset_left = 757.0
 offset_top = 646.0
-offset_right = 1549.0
-offset_bottom = 989.0
+offset_right = 1525.0
+offset_bottom = 979.0
 theme_override_font_sizes/font_size = 80
 text = "exit"
 

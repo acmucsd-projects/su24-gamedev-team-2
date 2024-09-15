@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dudomhdsu20h8"]
+
+[ext_resource type="Script" path="res://level_end.gd" id="1_lbs8y"]
+
+[node name="level_end" type="Node2D"]
+script = ExtResource("1_lbs8y")
+
+[node name="back to town" type="Button" parent="."]
+offset_left = 671.0
+offset_top = 220.0
+offset_right = 1510.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 80
+text = "back to town"
+
+[node name="next level" type="Button" parent="."]
+offset_left = 673.0
+offset_top = 678.0
+offset_right = 1531.0
+offset_bottom = 959.0
+theme_override_font_sizes/font_size = 80
+text = "next level"
+
+[connection signal="pressed" from="back to town" to="." method="_on_back_to_town_pressed"]
+[connection signal="pressed" from="next level" to="." method="_on_next_level_pressed"]
