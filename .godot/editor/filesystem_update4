@@ -1,8 +1,7 @@
-res://town.tscn
+res://armor.tscn
+res://armor._in.gd
 res://main.tscn
 res://world.tscn
 res://player/player.tscn
 res://enemy/skeleton.tscn
-res://armor.tscn
-res://shop.gd
-res://town.gd
+res://town.tscn

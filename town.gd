@@ -8,8 +8,15 @@ func _process(delta):
 	if in_range and can_open:
 		if Input.is_action_just_pressed("ui_right_click"):
 			var player = get_node("player/player")
-			player.position = Vector2(140,437)
+			##player.position = Vector2(140,437)
+			#
+			#if player:
+				#player.position = Vector2(100, 100)  # Safe to use the player now
+			#else:
+				#print("Player node not found!")
 
+			#player.position = Vector2(1000,550)
+#
 
 			get_tree().change_scene_to_file("res://town.tscn")
 
