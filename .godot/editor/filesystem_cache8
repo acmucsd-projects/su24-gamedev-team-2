@@ -1,25 +1,25 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1727022172
+::res://::1727027099
 AnimationSheet_Character.png::CompressedTexture2D::430375940426237450::1724619713::1724619713::1::::<><>::
 Armor.gd::GDScript::-1::1724627808::0::1::::<>Area2D<>::
-armor.tscn::PackedScene::3418000325177413315::1727022157::0::1::::<><>::res://armor._in.gd
-armor._in.gd::GDScript::-1::1727022157::0::1::::<>Node2D<>::
+armor.tscn::PackedScene::3418000325177413315::1727022520::0::1::::<><>::res://armor._in.gd
+armor._in.gd::GDScript::-1::1727022488::0::1::::<>Node2D<>::
 exit.gd::GDScript::-1::1724627653::0::1::::<>Area2D<>::
 global.gd::GDScript::-1::1724619713::0::1::::<>Node<>::
 main.gd::GDScript::-1::1727020397::0::1::::<>Node2D<>::
-main.tscn::PackedScene::4784525461696859459::1727020434::0::1::::<><>::res://main.gd
+main.tscn::PackedScene::4784525461696859459::1727022489::0::1::::<><>::res://main.gd
 respawn.gd::GDScript::-1::1724619713::0::1::::<>Node2D<>::
 respawn.tscn::PackedScene::4597698927359744203::1724619713::0::1::::<><>::res://respawn.gd
 shop.gd::GDScript::-1::1727007120::0::1::::<>Node2D<>::
 Skeleton enemy.png::CompressedTexture2D::2026478523736852579::1724619713::1724619713::1::::<><>::
 town.gd::GDScript::-1::1727007029::0::1::::<>Area2D<>::
-town.tscn::PackedScene::2422447429676863896::1727020434::0::1::::<><>::res://shop.gd<>res://Armor.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>res://exit.gd<>res://player/player_town.gd
+town.tscn::PackedScene::2422447429676863896::1727022489::0::1::::<><>::res://shop.gd<>res://Armor.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>res://exit.gd<>res://player/player_town.gd
 world.gd::GDScript::-1::1724624079::0::1::::<>Node2D<>::
-world.tscn::PackedScene::7163943282554114354::1727020434::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/skeleton.tscn<>res://town.gd
-::res://enemy/::1727020434
+world.tscn::PackedScene::7163943282554114354::1727022489::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/skeleton.tscn<>res://town.gd
+::res://enemy/::1727022489
 skeleton.gd::GDScript::-1::1724619713::0::1::::<>CharacterBody2D<>::
-skeleton.tscn::PackedScene::821709077370684974::1727020434::0::1::::<><>::uid://34v2m3edfkgx::::res://Skeleton enemy.png<>res://enemy/skeleton.gd
-::res://player/::1727020434
+skeleton.tscn::PackedScene::821709077370684974::1727022489::0::1::::<><>::uid://34v2m3edfkgx::::res://Skeleton enemy.png<>res://enemy/skeleton.gd
+::res://player/::1727022489
 player.gd::GDScript::-1::1724625622::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::9194677142122444141::1727020434::0::1::::<><>::res://player/player.gd<>uid://geqh1teab7u1::::res://AnimationSheet_Character.png
+player.tscn::PackedScene::9194677142122444141::1727022489::0::1::::<><>::res://player/player.gd<>uid://geqh1teab7u1::::res://AnimationSheet_Character.png
 player_town.gd::GDScript::-1::1727006658::0::1::::<>CharacterBody2D<>::

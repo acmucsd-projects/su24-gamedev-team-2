@@ -41,8 +41,21 @@ func switch_item(select):
 		if select == i:
 			currentItem = select
 			get_node("Control/name").text = items[currentItem]["Name"]
+			get_node("Control/des").text = items[currentItem]["Des"]
+			get_node("Control/des").text += "\nCost "+str(items[currentItem]["Cost"])
 func _on_buy_pressed():
-	pass # Replace with function body.
+	var hasItem = false
+	if gold >= items[currentItem]["Cost"]:
+		for i in inventory:
+			if inventory[i]["Name"] == items[currentItem]["Name"]:
+				inventory[i]["Count"] += 1
+				hasItem = true
+		if hasItem == false:
+			var tempDict = items[currentItem]
+			tempDict["Count"] = 1
+			inventory[inventory.size()]= tempDict
+		gold -= items[currentItem]["Cost"]
+		
 
 
 func _on_prev_pressed():
