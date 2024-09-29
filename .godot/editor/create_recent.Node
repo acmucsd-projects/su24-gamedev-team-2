@@ -1,3 +1,10 @@
+OptionButton
+Label
+CheckBox
+HSlider
+VBoxContainer
+MarginContainer
+Button
 ColorRect
 CollisionShape2D
 StaticBody2D
@@ -6,5 +13,3 @@ Polygon2D
 TextureRect
 Control
 CollisionPolygon2D
-ProgressBar
-Timer

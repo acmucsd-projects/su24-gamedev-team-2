@@ -1,6 +1,8 @@
-res://intro.tscn
 res://main.tscn
+res://intro.tscn
 res://pre-castle.tscn
 res://world.tscn
 res://player/player.tscn
 res://enemy/skeleton.tscn
+res://settings.tscn
+res://shop.tscn
