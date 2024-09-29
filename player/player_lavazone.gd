@@ -25,7 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_striking = false  # Flag to track if strike animation is active
 
 @onready var anim = $AnimationPlayer
-@onready var skeleton = $"../../skeleton_boss"
+@onready var large_slime = $"../../large_slime"
 
 func _ready() -> void:
 	if Global.player_position:
@@ -59,7 +59,6 @@ func _physics_process(delta):
 		anim.play("death")
 		await anim.animation_finished
 		respawn_scene()
-		#self.queue_free()
 		
 	if invincible:
 		invincibility_duration -= delta
@@ -67,7 +66,6 @@ func _physics_process(delta):
 			invincible = false
 		
 	if health < current_health and health > 0:
-		#velocity.x = 0
 		anim.play("hurt")
 		await anim.animation_finished
 		invincibility()
@@ -80,32 +78,23 @@ func _physics_process(delta):
 		if knockback_duration <= 0:
 			is_knocked_back = false
 			velocity = Vector2.ZERO
-	
-	#if Input.is_action_just_pressed("ui_left_click"):
-		#if anim.current_animation != "strike":
-			#anim.play("strike")
-			#is_striking = true  # Set flag to prevent other animations
 			
 	if Input.is_action_just_pressed("ui_left_click"):
 		if anim.current_animation != "strike":
 			anim.play("strike")
 			is_striking = true  # Set flag to prevent other animations
 			if Global.enemy_health > 0:
-				var distance = skeleton.position - self.position
+				var distance = large_slime.position - self.position
 				if abs(distance.x) <= 50:
-					#skeleton.health -= 5
-					var dir = (skeleton.position - position).normalized()
-					skeleton.call("apply_knockback", dir * knockback_force)
-					if skeleton.health <= 0:
-						is_striking = false
+					var dir = (large_slime.position - position).normalized()
+					large_slime.call("apply_knockback", dir * knockback_force)
+			else: 
+				is_striking = false
 		
 	if Input.is_action_just_pressed("ui_space") and JUMP_COUNT < MAX_JUMP:
 		anim.play('jump')
 		velocity.y = JUMP_VELOCITY
 		JUMP_COUNT += 1
-		
-	#if velocity.y > 0 and anim.current_animation != "strike" and anim.current_animation != "hurt":
-		#anim.play("fall")
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -155,9 +144,6 @@ func _physics_process(delta):
 func respawn_scene() -> void:
 	if get_tree() and anim.current_animation != "death":
 		get_tree().change_scene_to_file("res://respawn.tscn")
-		#return
-	#else:
-		#print(":(")
 
 func _on_dash_duration_timeout():
 	DASHING = false
@@ -174,12 +160,3 @@ func invincibility() -> void:
 	invincible = true
 	invincibility_duration = 0.7
 	
-#func _on_area_2d_body_entered(body):
-	#if body.name == "skeleton" or body.name == "@CharacterBody2D@2":
-		#if Input.is_action_just_pressed("ui_left_click") or is_striking:
-			#print("striking skeleton!")
-			#body.health -= 5
-			#var dir = (skeleton.position - position).normalized()
-			#body.call("apply_knockback", dir * knockback_force)
-			#if body.health <= 0:
-				#is_striking = false

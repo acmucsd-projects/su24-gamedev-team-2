@@ -22,4 +22,3 @@ func spawn_random_enemies():
 			enemy_instance.position = Vector2(random_x, random_y)
 			# Add the enemy instance to the scene
 			add_child(enemy_instance)
-			#print(enemy_instance.get_parent().to_string() == "enemy spawner:<Node2D#33755760044>")

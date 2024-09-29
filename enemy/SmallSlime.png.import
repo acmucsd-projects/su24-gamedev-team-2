@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://geqh1teab7u1"
-path="res://.godot/imported/AnimationSheet_Character.png-180187841cf5dc54e553e7fb3b1c09a2.ctex"
+uid="uid://dddn3pqo5ersh"
+path="res://.godot/imported/SmallSlime.png-87439ade497edeea6e93cca16b94fe5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://AnimationSheet_Character.png"
-dest_files=["res://.godot/imported/AnimationSheet_Character.png-180187841cf5dc54e553e7fb3b1c09a2.ctex"]
+source_file="res://enemy/SmallSlime.png"
+dest_files=["res://.godot/imported/SmallSlime.png-87439ade497edeea6e93cca16b94fe5f.ctex"]
 
 [params]
 

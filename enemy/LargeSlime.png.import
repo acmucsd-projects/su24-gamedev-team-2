@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://34v2m3edfkgx"
-path="res://.godot/imported/Skeleton enemy.png-4c3c0c3c52487fb9c1cc41cb0e8706ad.ctex"
+uid="uid://c6niwkt73ja84"
+path="res://.godot/imported/LargeSlime.png-09a06dec02b89f76a4b850818dcf1f39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Skeleton enemy.png"
-dest_files=["res://.godot/imported/Skeleton enemy.png-4c3c0c3c52487fb9c1cc41cb0e8706ad.ctex"]
+source_file="res://enemy/LargeSlime.png"
+dest_files=["res://.godot/imported/LargeSlime.png-09a06dec02b89f76a4b850818dcf1f39.ctex"]
 
 [params]
 

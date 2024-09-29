@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://world.gd" id="1_0h435"]
 [ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="1_2f8yc"]
-[ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/skeleton.tscn" id="2_u36gk"]
+[ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/smallslime.tscn" id="2_u36gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qawu"]
 size = Vector2(1173, 171)
@@ -47,8 +47,8 @@ position = Vector2(203, 449)
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="skeleton" parent="enemies" instance=ExtResource("2_u36gk")]
-position = Vector2(847, 222)
+[node name="small slime" parent="enemies" instance=ExtResource("2_u36gk")]
+position = Vector2(-265, 657)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 7
