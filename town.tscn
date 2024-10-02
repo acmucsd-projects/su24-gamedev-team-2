@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://barpmcwpyj6oy"]
+[gd_scene load_steps=15 format=3 uid="uid://barpmcwpyj6oy"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_tedvv"]
 [ext_resource type="Script" path="res://Armor.gd" id="2_kcsh6"]
 [ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="2_trx6g"]
 [ext_resource type="Script" path="res://exit.gd" id="3_nhtvs"]
 [ext_resource type="Script" path="res://player/player_town.gd" id="4_f65x1"]
+[ext_resource type="Texture2D" uid="uid://ccp7lm256nfrq" path="res://town_background.png" id="6_w25lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iecia"]
 size = Vector2(122.976, 36)
@@ -13,19 +14,19 @@ size = Vector2(122.976, 36)
 size = Vector2(184.884, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pptj"]
-size = Vector2(2599.18, 826.5)
+size = Vector2(4594.9, 826.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u074"]
-size = Vector2(328.119, 256.5)
+size = Vector2(524.515, 615.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5thx"]
-size = Vector2(230, 252)
+size = Vector2(635.5, 1305)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpgjg"]
-size = Vector2(351.608, 293)
+size = Vector2(657.314, 624.573)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7nsf"]
-size = Vector2(287.25, 287)
+size = Vector2(293.625, 388)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ocmg"]
 size = Vector2(2311.41, 240.631)
@@ -34,18 +35,30 @@ size = Vector2(2311.41, 240.631)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tedvv")
 
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(2294, 1682)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(654, -2140)
+scale = Vector2(22046.6, -20734.3)
+offset = Vector2(100, 100)
+zoom = Vector2(1.5, 1.5)
+
 [node name="Label" type="Label" parent="."]
-offset_left = 1470.0
-offset_top = 266.0
-offset_right = 2213.0
-offset_bottom = 469.0
+offset_left = 1876.0
+offset_top = 570.0
+offset_right = 2619.0
+offset_bottom = 773.0
 theme_override_font_sizes/font_size = 80
 text = "town
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="bridge1" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge1"]
 position = Vector2(1958.81, 1221)
@@ -58,6 +71,7 @@ offset_right = 2020.37
 offset_bottom = 1241.0
 
 [node name="bridge2" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge2"]
 position = Vector2(1720.48, 1082)
@@ -70,6 +84,7 @@ offset_right = 1813.54
 offset_bottom = 1104.0
 
 [node name="bridge3" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge3"]
 position = Vector2(1502.62, 944)
@@ -82,50 +97,58 @@ offset_right = 1591.68
 offset_bottom = 966.0
 
 [node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(1362.42, 1442.5)
+position = Vector2(1644.42, 1868.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(-58.828, 306.25)
+position = Vector2(697.58, 1271.5)
 shape = SubResource("RectangleShape2D_1pptj")
 
 [node name="Panel" type="Panel" parent="floor"]
-offset_left = -1372.0
-offset_top = -106.0
-offset_right = 1242.0
-offset_bottom = 714.0
+visible = false
+offset_left = -1384.42
+offset_top = -110.5
+offset_right = 1229.58
+offset_bottom = 709.5
 
 [node name="Armor_shop" type="StaticBody2D" parent="."]
-position = Vector2(1873, 858)
+position = Vector2(2155, 1284)
 
 [node name="Armor2" type="Area2D" parent="Armor_shop"]
 script = ExtResource("2_kcsh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop/Armor2"]
-position = Vector2(-811.271, -212)
+position = Vector2(1489.26, 1115.75)
 shape = SubResource("RectangleShape2D_1u074")
 
 [node name="Armor" type="Panel" parent="Armor_shop"]
+visible = false
 offset_left = -979.001
 offset_top = -338.0
 offset_right = -745.001
 offset_bottom = -88.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Armor_shop"]
-offset_left = -968.011
-offset_top = -273.0
-offset_right = -732.011
-offset_bottom = -166.0
+visible = false
+offset_left = -1319.0
+offset_top = 642.0
+offset_right = -1083.0
+offset_bottom = 749.0
 theme_override_font_sizes/normal_font_size = 70
 text = "armor
 "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop"]
-position = Vector2(-860.071, -214)
+position = Vector2(-1727, 782)
+shape = SubResource("RectangleShape2D_n5thx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Armor_shop"]
+position = Vector2(2083, 774)
 shape = SubResource("RectangleShape2D_n5thx")
 
 [node name="player" parent="." instance=ExtResource("2_trx6g")]
 top_level = true
-position = Vector2(1001, 545)
+position = Vector2(625, 1220)
+scale = Vector2(3, 3)
 script = ExtResource("4_f65x1")
 
 [node name="dash_again2" type="Timer" parent="player"]
@@ -135,55 +158,63 @@ wait_time = 0.6
 wait_time = 0.2
 
 [node name="exit_detect" type="Area2D" parent="."]
-position = Vector2(-36, 2)
+position = Vector2(730, 844)
 scale = Vector2(1.00224, 0.997999)
 script = ExtResource("3_nhtvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit_detect"]
-position = Vector2(2364.51, 1184.87)
+position = Vector2(1798.12, 1386.97)
 scale = Vector2(1.0023, 1.00687)
 shape = SubResource("RectangleShape2D_jpgjg")
 
 [node name="exit2" type="StaticBody2D" parent="."]
+position = Vector2(1500, -2594)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit2"]
-position = Vector2(2374.05, 1182.5)
+position = Vector2(2290, 1512)
 shape = SubResource("RectangleShape2D_i7nsf")
 
 [node name="Panel" type="Panel" parent="exit2"]
-offset_left = 2227.42
-offset_top = 1038.0
-offset_right = 2519.42
-offset_bottom = 1326.0
+visible = false
+offset_left = 2276.0
+offset_top = 578.0
+offset_right = 2568.0
+offset_bottom = 866.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="exit2"]
-offset_left = 2281.42
-offset_top = 1110.0
-offset_right = 2646.42
-offset_bottom = 1278.0
+offset_left = 932.0
+offset_top = 4502.0
+offset_right = 1297.0
+offset_bottom = 4670.0
 theme_override_font_sizes/normal_font_size = 101
 text = "exit
 "
 
 [node name="floor2" type="StaticBody2D" parent="."]
-position = Vector2(1104, 813)
+visible = false
+position = Vector2(771.011, 1026)
 scale = Vector2(0.230196, 0.351211)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
-position = Vector2(-18.8333, 8.54187)
+visible = false
+position = Vector2(212.814, 620.709)
 shape = SubResource("RectangleShape2D_7ocmg")
 
 [node name="floor" type="Panel" parent="floor2"]
+visible = false
 offset_left = -1185.77
 offset_top = -113.892
 offset_right = 1114.23
 offset_bottom = 127.108
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2566, 1204)
-scale = Vector2(22046.6, -20734.3)
-zoom = Vector2(1.5, 1.5)
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -32.0
+offset_top = 346.0
+offset_right = 4572.0
+offset_bottom = 3444.0
+texture = ExtResource("6_w25lc")
 
 [connection signal="body_entered" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_body_entered"]
 [connection signal="body_exited" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_body_exited"]

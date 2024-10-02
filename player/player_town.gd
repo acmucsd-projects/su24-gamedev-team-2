@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var DASH_SPEED = 600
 var JUMP_COUNT = 0
 var MAX_JUMP = 2
+@onready var camera = $Camera2D
 
 var DASHING = false
 var CAN_DASH = true
@@ -26,6 +27,7 @@ func _ready() -> void:
 		self.health = Global.player_health
 	if Global.player_direction_left:
 		$AnimatedSprite2D.flip_h = true
+	
 
 func _physics_process(delta):
 	# Add the gravity.

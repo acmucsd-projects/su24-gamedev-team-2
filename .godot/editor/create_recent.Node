@@ -1,3 +1,5 @@
+Camera2D
+TextureRect
 Label
 Button
 AnimatedSprite2D
@@ -7,8 +9,6 @@ Panel
 CanvasLayer
 AnimationPlayer
 CollisionShape2D
-Camera2D
 StaticBody2D
 Area2D
 RichTextLabel
-ProgressBar
