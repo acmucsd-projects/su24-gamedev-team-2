@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://cjwg4vp8v0uoc"]
 
-[ext_resource type="Texture2D" uid="uid://dbu0nqto3ojru" path="res://platform-lava-zone.png" id="1_k5epe"]
 [ext_resource type="Script" path="res://lava_zone.gd" id="1_q7ome"]
+[ext_resource type="Texture2D" uid="uid://dm2m3mygb5wsm" path="res://lava zone background.webp" id="2_1x0rw"]
 [ext_resource type="PackedScene" uid="uid://d3878vqnvxs82" path="res://player/player.tscn" id="2_4yvpt"]
 [ext_resource type="PackedScene" uid="uid://lybotj3vh6v7" path="res://enemy/smallslime.tscn" id="4_8f5un"]
 [ext_resource type="Script" path="res://player/player_lavazone.gd" id="4_ck0vk"]
@@ -10,7 +10,10 @@
 [ext_resource type="Script" path="res://enemy spawner.gd" id="7_ghddh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak2ud"]
-size = Vector2(2316, 93)
+size = Vector2(828, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5clcn"]
+size = Vector2(630.5, 42.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p8ap"]
 size = Vector2(5, 62)
@@ -19,7 +22,10 @@ size = Vector2(5, 62)
 size = Vector2(10, 60.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e12k0"]
-size = Vector2(2312, 92)
+size = Vector2(825, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h83d5"]
+size = Vector2(632, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srmwd"]
 size = Vector2(55, 695)
@@ -28,42 +34,35 @@ size = Vector2(55, 695)
 size = Vector2(45.5, 685.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gup"]
-size = Vector2(167.25, 7.5)
+size = Vector2(411.625, 48.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48uio"]
-size = Vector2(218, 9)
+size = Vector2(415, 45.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu76q"]
-size = Vector2(102.375, 9.12451)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pv2x"]
-size = Vector2(117.594, 11.5316)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi8w"]
-size = Vector2(142, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_spg6n"]
-size = Vector2(161, 13)
+size = Vector2(469.188, 48.1243)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bosbu"]
-size = Vector2(306, 14)
+size = Vector2(201, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odaw1"]
+size = Vector2(465, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojljr"]
-size = Vector2(2015, 23)
+size = Vector2(764.75, 23)
 
 [node name="lava zone" type="Node2D"]
 script = ExtResource("1_q7ome")
 
 [node name="Platform-lava-zone" type="Sprite2D" parent="."]
-position = Vector2(575.5, 345)
-scale = Vector2(0.330571, 0.34)
-texture = ExtResource("1_k5epe")
-metadata/_edit_lock_ = true
+position = Vector2(725.404, 360.46)
+scale = Vector2(0.809817, 0.70418)
+texture = ExtResource("2_1x0rw")
 
 [node name="player" type="Node2D" parent="."]
 
 [node name="player" parent="player" instance=ExtResource("2_4yvpt")]
-position = Vector2(2160, 217)
+position = Vector2(1229, 266)
 script = ExtResource("4_ck0vk")
 
 [node name="Panel" type="Panel" parent="."]
@@ -78,19 +77,23 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="lava" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1154, 637.5)
+position = Vector2(411, 673)
 shape = SubResource("RectangleShape2D_ak2ud")
+
+[node name="lava2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1137.75, 680.75)
+shape = SubResource("RectangleShape2D_5clcn")
 
 [node name="enemy walls" type="Area2D" parent="."]
 collision_layer = 7
 collision_mask = 7
 
 [node name="wall1" type="CollisionShape2D" parent="enemy walls"]
-position = Vector2(-0.5, 545)
+position = Vector2(60, 314)
 shape = SubResource("RectangleShape2D_5p8ap")
 
 [node name="wall2" type="CollisionShape2D" parent="enemy walls"]
-position = Vector2(299, 545.375)
+position = Vector2(358, 314)
 shape = SubResource("RectangleShape2D_t8ne3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -98,123 +101,62 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="lava" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1153, 638)
+position = Vector2(412.5, 680)
 shape = SubResource("RectangleShape2D_e12k0")
+
+[node name="lava2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1135, 685)
+shape = SubResource("RectangleShape2D_h83d5")
 
 [node name="left wall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-31.5, 337.5)
 shape = SubResource("RectangleShape2D_srmwd")
 
 [node name="right wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2342, 340)
+position = Vector2(1474, 343)
 shape = SubResource("RectangleShape2D_stj0s")
 
 [node name="platform" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(210.375, 336.25)
+position = Vector2(203.188, 366.625)
 shape = SubResource("RectangleShape2D_g5gup")
 
 [node name="platform2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(671, 274.75)
+position = Vector2(201.5, 173.25)
 shape = SubResource("RectangleShape2D_48uio")
 
 [node name="platform3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(397.812, 446.438)
+position = Vector2(230.406, 499)
 shape = SubResource("RectangleShape2D_vu76q")
 
-[node name="platform4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1098.2, 400.234)
-shape = SubResource("RectangleShape2D_6pv2x")
-
-[node name="platform5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(809, 490)
-shape = SubResource("RectangleShape2D_cwi8w")
-
-[node name="platform6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(589.5, 586.5)
-shape = SubResource("RectangleShape2D_spg6n")
-
 [node name="platform7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(150, 587)
+position = Vector2(251.5, 620)
 shape = SubResource("RectangleShape2D_bosbu")
 
-[node name="platform8" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1309, 584.5)
-shape = SubResource("RectangleShape2D_48uio")
-
 [node name="platform9" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1578, 292)
-shape = SubResource("RectangleShape2D_48uio")
+position = Vector2(1217.5, 315)
+shape = SubResource("RectangleShape2D_odaw1")
 
-[node name="platform10" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1682, 449)
-shape = SubResource("RectangleShape2D_48uio")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(904, 459, 1063, 461, 1065, 481, 1099, 482, 1099, 499, 1129, 499, 1131, 518, 1158, 518, 1159, 532, 1185, 533, 1185, 549, 1212, 550, 1221, 570, 1250, 569, 1253, 591, 1280, 592, 1283, 607, 1311, 606, 1312, 617, 1341, 617, 1339, 634, 1366, 634, 1366, 649, 1391, 649, 1390, 660, 1390, 660, 1366, 659, 1339, 658, 1065, 572, 1015, 501, 904, 501)
 
-[node name="platform11" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1350, 133)
-shape = SubResource("RectangleShape2D_48uio")
-
-[node name="platform12" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2097, 496)
-shape = SubResource("RectangleShape2D_48uio")
-
-[node name="platform13" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2211, 251)
-shape = SubResource("RectangleShape2D_48uio")
-
-[node name="Panel" type="Panel" parent="StaticBody2D"]
-offset_left = 1199.0
-offset_top = 579.0
-offset_right = 1418.0
-offset_bottom = 588.0
-
-[node name="Panel2" type="Panel" parent="StaticBody2D"]
-offset_left = 1469.0
-offset_top = 284.0
-offset_right = 1688.0
-offset_bottom = 301.0
-
-[node name="Panel3" type="Panel" parent="StaticBody2D"]
-offset_left = 1572.0
-offset_top = 441.0
-offset_right = 1791.0
-offset_bottom = 458.0
-
-[node name="Panel4" type="Panel" parent="StaticBody2D"]
-offset_left = 1241.0
-offset_top = 124.0
-offset_right = 1460.0
-offset_bottom = 141.0
-
-[node name="Panel5" type="Panel" parent="StaticBody2D"]
-offset_left = 2100.0
-offset_top = 242.0
-offset_right = 2319.0
-offset_bottom = 259.0
-
-[node name="Panel6" type="Panel" parent="StaticBody2D"]
-offset_left = 1988.0
-offset_top = 487.0
-offset_right = 2207.0
-offset_bottom = 504.0
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-z_index = -1
-offset_left = 1153.0
-offset_top = 584.0
-offset_right = 2318.0
-offset_bottom = 686.0
-color = Color(0.851867, 0.12377, 0.201197, 1)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(477, 374, 563, 374, 565, 389, 591, 390, 592, 405, 616, 406, 617, 419, 642, 420, 644, 437, 669, 438, 670, 455, 696, 456, 697, 470, 722, 471, 725, 492, 750, 492, 751, 508, 774, 507, 776, 525, 802, 527, 802, 546, 828, 547, 828, 561, 850, 562, 851, 573, 875, 574, 876, 591, 898, 591, 900, 603, 925, 604, 925, 617, 952, 617, 952, 625, 977, 626, 977, 635, 1004, 635, 1004, 644, 1027, 644, 1028, 654, 1053, 654, 1054, 666, 833, 620, 725, 544, 568, 421, 477, 417)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1307, 591)
+position = Vector2(344.25, 622)
+shape = SubResource("RectangleShape2D_ojljr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1072.62, 684)
 shape = SubResource("RectangleShape2D_ojljr")
 
 [node name="large_slime" parent="." instance=ExtResource("5_wrtx5")]
-position = Vector2(160, 549)
+position = Vector2(131, 311)
 script = ExtResource("6_utmt3")
 knockback_force = 500.0
 
