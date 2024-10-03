@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cafwo2icd161t"]
+[gd_scene load_steps=2 format=3 uid="uid://d24rin3xanwvr"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fage4"]
 
@@ -6,22 +6,32 @@
 script = ExtResource("1_fage4")
 
 [node name="play" type="Button" parent="."]
-offset_left = 725.0
-offset_top = 162.0
-offset_right = 1555.0
-offset_bottom = 501.0
-theme_override_font_sizes/font_size = 80
-text = "play"
+offset_left = 721.0
+offset_top = 355.0
+offset_right = 1561.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 70
+text = "NEW GAME"
 
 [node name="quit" type="Button" parent="."]
-offset_left = 730.0
-offset_top = 674.0
-offset_right = 1543.0
-offset_bottom = 1023.0
-theme_override_font_sizes/font_size = 80
-text = "quit"
+offset_left = 719.0
+offset_top = 821.0
+offset_right = 1568.0
+offset_bottom = 960.0
+theme_override_font_sizes/font_size = 70
+text = "QUIT
+"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 724.0
+offset_top = 591.0
+offset_right = 1566.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 70
+text = "SETTINGS"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="play" to="play" method="_on_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="quit" to="play" method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

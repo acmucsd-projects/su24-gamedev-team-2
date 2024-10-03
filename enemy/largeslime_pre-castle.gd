@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = $"../player/player"
+@onready var player = $"../player"
 
 const SPEED = 50.0
 var health = 20
@@ -30,9 +30,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
-	if Global.num_enemies == 0:
-		level_end_scene()
 	
 	if invincible:
 		invincibility_duration -= delta
@@ -140,7 +137,7 @@ func _on_area_2d_strike_body_entered(body):
 	if body.name == "player" and body.health > 0:
 		is_striking = true
 		if is_striking and can_dash and is_dashing:
-			body.health -= 6
+			body.health -= 7
 			var direction = (body.position - position).normalized()
 			body.call("apply_knockback", direction * knockback_force)
 			can_dash = false
@@ -156,13 +153,13 @@ func _on_area_2d_strike_body_entered(body):
 				if light_or_heavy == 5:
 					get_node("AnimatedSprite2D").play("attack_heavy")
 					await get_node("AnimatedSprite2D").animation_finished
-					body.health -= 8
+					body.health -= 10
 					var direction = (body.position - position).normalized()
 					body.call("apply_knockback", direction * knockback_force)
 				else:
 					get_node("AnimatedSprite2D").play("attack_basic")
 					await get_node("AnimatedSprite2D").animation_finished
-					body.health -= 4
+					body.health -= 5
 					var direction = (body.position - position).normalized()
 					body.call("apply_knockback", direction * knockback_force)
 				if body.health <= 0:
