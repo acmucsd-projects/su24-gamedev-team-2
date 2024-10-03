@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cafwo2icd161t"]
+[gd_scene load_steps=2 format=3 uid="uid://d24rin3xanwvr"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fage4"]
 
@@ -8,20 +8,38 @@ script = ExtResource("1_fage4")
 [node name="play" type="Button" parent="."]
 offset_left = 725.0
 offset_top = 162.0
-offset_right = 1555.0
-offset_bottom = 501.0
-theme_override_font_sizes/font_size = 80
-text = "play"
+offset_right = 1565.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 70
+text = "CONTINUE"
 
 [node name="quit" type="Button" parent="."]
-offset_left = 730.0
-offset_top = 674.0
-offset_right = 1543.0
-offset_bottom = 1023.0
-theme_override_font_sizes/font_size = 80
-text = "quit"
+offset_left = 721.0
+offset_top = 836.0
+offset_right = 1570.0
+offset_bottom = 975.0
+theme_override_font_sizes/font_size = 70
+text = "QUIT
+"
+
+[node name="new_game" type="Button" parent="."]
+offset_left = 722.0
+offset_top = 391.0
+offset_right = 1565.0
+offset_bottom = 532.0
+theme_override_font_sizes/font_size = 70
+text = "NEW GAME"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 724.0
+offset_top = 621.0
+offset_right = 1566.0
+offset_bottom = 751.0
+theme_override_font_sizes/font_size = 70
+text = "SETTINGS"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="play" to="play" method="_on_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="quit" to="play" method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

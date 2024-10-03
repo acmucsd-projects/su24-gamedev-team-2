@@ -7,7 +7,7 @@ func _ready():
 	print(Global.num_enemies)
 
 func _on_area_2d_body_entered(body):
-	if body == player:
+	if body == player:	
 		Global.player_health = 0
 		player.health = 0
 
