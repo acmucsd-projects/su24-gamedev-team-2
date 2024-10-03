@@ -1,41 +1,45 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1727980386
-enemy spawner.gd::GDScript::-1::1727649993::0::1::::<>Node2D<>::
-global.gd::GDScript::-1::1727649993::0::1::::<>Node<>::
-intro.tscn::PackedScene::1986581228808288170::1727943012::0::1::::<><>::uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>uid://d3878vqnvxs82::::res://player/player.tscn
-lava.gd::GDScript::-1::1725207903::0::1::::<>Control<>::
-lava_zone.gd::GDScript::-1::1727902130::0::1::::<>Node2D<>::
-lava_zone.tscn::PackedScene::5450374488388506918::1727943013::0::1::::<><>::uid://dbu0nqto3ojru::::res://platform-lava-zone.png<>res://lava_zone.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>res://player/player_lavazone.gd<>uid://lr7eoqvmxf7h::::res://enemy/largeslime.tscn<>res://enemy/largeslime.gd<>res://enemy spawner.gd
-level_end.gd::GDScript::-1::1727649993::0::1::::<>Node2D<>::
-level_end.tscn::PackedScene::8570103897671238411::1727878915::0::1::::<><>::res://level_end.gd
-main.gd::GDScript::-1::1727843041::0::1::::<>Node2D<>::
-main.tscn::PackedScene::9115274986505807483::1727943012::0::1::::<><>::res://main.gd
-platform-lava-zone.png::CompressedTexture2D::7272280460337417130::1727649993::1727650049::1::::<><>::
-pre-castle.jpg::CompressedTexture2D::552599507988880371::1727891228::1727891242::1::::<><>::
-pre-castle.tscn::PackedScene::7904203474640902218::1727943082::0::1::::<><>::res://lava.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://h4xh6sfe3ajb::::res://pre-castle.jpg<>res://player/player_pre-castle.gd<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>res://enemy/smallslime-pre-castle.gd<>uid://lr7eoqvmxf7h::::res://enemy/largeslime.tscn<>res://enemy/largeslime_pre-castle.gd
-respawn.gd::GDScript::-1::1727649993::0::1::::<>Node2D<>::
-respawn.tscn::PackedScene::4597698927359744203::1727649993::0::1::::<><>::res://respawn.gd
-settings.gd::GDScript::-1::1727595856::0::1::::<>Control<>::
-settings.tscn::PackedScene::4733174058348197547::1727878915::0::1::::<><>::res://settings.gd
-shop.gd::GDScript::-1::1727649935::0::1::::<>Node2D<>::
-shop.tscn::PackedScene::2422447429676863896::1727649935::0::1::::<><>::res://shop.gd
-world.gd::GDScript::-1::1727649993::0::1::::<>Node2D<>::
-world.tscn::PackedScene::7163943282554114354::1727943013::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn
-::res://enemy/::1727973610
-largeslime.gd::GDScript::-1::1727649993::0::1::::<>CharacterBody2D<>::
-LargeSlime.png::CompressedTexture2D::6976058010452513735::1727649993::1727650047::1::::<><>::
-largeslime.tscn::PackedScene::809122549796382323::1727842940::0::1::::<><>::res://enemy/smallslime.gd<>uid://c6niwkt73ja84::::res://enemy/LargeSlime.png
-largeslime_pre-castle.gd::GDScript::-1::1727939079::0::1::::<>CharacterBody2D<>::
-Skeleton enemy.png::CompressedTexture2D::2026478523736852579::1727649993::1727650047::1::::<><>::
-smallslime-pre-castle.gd::GDScript::-1::1727937481::0::1::::<>CharacterBody2D<>::
-smallslime.gd::GDScript::-1::1727934759::0::1::::<>CharacterBody2D<>::
-SmallSlime.png::CompressedTexture2D::7376861851634367087::1727649993::1727650047::1::::<><>::
-smallslime.tscn::PackedScene::821709077370684974::1727943013::0::1::::<><>::res://enemy/smallslime.gd<>uid://dddn3pqo5ersh::::res://enemy/SmallSlime.png
-::res://player/::1727973610
-Full Attack.png::CompressedTexture2D::2203859664253722896::1727649993::1727650047::1::::<><>::
-MCSpriteSheet.png::CompressedTexture2D::8073501254975280233::1727649993::1727650047::1::::<><>::
-player.gd::GDScript::-1::1727649993::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::9194677142122444141::1727943013::0::1::::<><>::res://player/player.gd<>uid://dna4nel554ucn::::res://player/MCSpriteSheet.png<>uid://cr2svmcl6jw8i::::res://player/spritesheet_no_attack.png<>uid://6ntinfuqmd4k::::res://player/Full Attack.png
-player_lavazone.gd::GDScript::-1::1727649993::0::1::::<>CharacterBody2D<>::
-player_pre-castle.gd::GDScript::-1::1727939276::0::1::::<>CharacterBody2D<>::
-spritesheet_no_attack.png::CompressedTexture2D::6022920950045572698::1727649993::1727650047::1::::<><>::
+::res://::1727991044
+congrats.tscn::PackedScene::7960769180266082035::1727987664::0::1::::<><>::uid://d3a5fjo0181d6::::res://congrats.webp
+congrats.webp::CompressedTexture2D::9126380607206098997::1727982772::1727982774::1::::<><>::
+enemy spawner.gd::GDScript::-1::1727982029::0::1::::<>Node2D<>::
+global.gd::GDScript::-1::1727982029::0::1::::<>Node<>::
+intro.tscn::PackedScene::1986581228808288170::1727987663::0::1::::<><>::uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>uid://d3878vqnvxs82::::res://player/player.tscn
+lava zone background.webp::CompressedTexture2D::8058045647868502152::1727982029::1727982056::1::::<><>::
+lava.gd::GDScript::-1::1727982029::0::1::::<>Control<>::
+lava_zone.gd::GDScript::-1::1727986468::0::1::::<>Node2D<>::
+lava_zone.tscn::PackedScene::5450374488388506918::1727987664::0::1::::<><>::res://lava_zone.gd<>uid://dm2m3mygb5wsm::::res://lava zone background.webp<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>res://player/player_lavazone.gd<>uid://lr7eoqvmxf7h::::res://enemy/largeslime.tscn<>res://enemy/largeslime.gd<>res://enemy spawner.gd
+level_end.gd::GDScript::-1::1727982029::0::1::::<>Node2D<>::
+level_end.tscn::PackedScene::8570103897671238411::1727987664::0::1::::<><>::res://level_end.gd
+main.gd::GDScript::-1::1727982505::0::1::::<>Node2D<>::
+main.tscn::PackedScene::9115274986505807483::1727987663::0::1::::<><>::res://main.gd
+platform-lava-zone.png::CompressedTexture2D::7272280460337417130::1727982029::1727982029::1::::<><>::
+pre-castle.gd::GDScript::-1::1727986849::0::1::::<>Node2D<>::
+pre-castle.jpg::CompressedTexture2D::552599507988880371::1727982029::1727982029::1::::<><>::
+pre-castle.tscn::PackedScene::7904203474640902218::1727987664::0::1::::<><>::res://lava.gd<>res://pre-castle.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://h4xh6sfe3ajb::::res://pre-castle.jpg<>res://player/player_pre-castle.gd<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn<>res://enemy/smallslime-pre-castle.gd<>uid://lr7eoqvmxf7h::::res://enemy/largeslime.tscn<>res://enemy/largeslime_pre-castle.gd
+respawn.gd::GDScript::-1::1727982029::0::1::::<>Node2D<>::
+respawn.tscn::PackedScene::4597698927359744203::1727982029::0::1::::<><>::res://respawn.gd
+settings.gd::GDScript::-1::1727982029::0::1::::<>Control<>::
+settings.tscn::PackedScene::4733174058348197547::1727982029::0::1::::<><>::res://settings.gd
+shop.gd::GDScript::-1::1727981945::0::1::::<>Node2D<>::
+shop.tscn::PackedScene::2422447429676863896::1727981945::0::1::::<><>::res://shop.gd
+world.gd::GDScript::-1::1727982029::0::1::::<>Node2D<>::
+world.tscn::PackedScene::7163943282554114354::1727987664::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/smallslime.tscn
+::res://enemy/::1727987664
+largeslime.gd::GDScript::-1::1727982029::0::1::::<>CharacterBody2D<>::
+LargeSlime.png::CompressedTexture2D::6976058010452513735::1727982029::1727982029::1::::<><>::
+largeslime.tscn::PackedScene::809122549796382323::1727982029::0::1::::<><>::res://enemy/smallslime.gd<>uid://c6niwkt73ja84::::res://enemy/LargeSlime.png
+largeslime_pre-castle.gd::GDScript::-1::1727987629::0::1::::<>CharacterBody2D<>::
+Skeleton enemy.png::CompressedTexture2D::2026478523736852579::1727982029::1727982029::1::::<><>::
+smallslime-pre-castle.gd::GDScript::-1::1727982029::0::1::::<>CharacterBody2D<>::
+smallslime.gd::GDScript::-1::1727982029::0::1::::<>CharacterBody2D<>::
+SmallSlime.png::CompressedTexture2D::7376861851634367087::1727982029::1727982029::1::::<><>::
+smallslime.tscn::PackedScene::821709077370684974::1727987664::0::1::::<><>::res://enemy/smallslime.gd<>uid://dddn3pqo5ersh::::res://enemy/SmallSlime.png
+::res://player/::1727987664
+Full Attack.png::CompressedTexture2D::2203859664253722896::1727982029::1727982029::1::::<><>::
+MCSpriteSheet.png::CompressedTexture2D::8073501254975280233::1727982029::1727982029::1::::<><>::
+player.gd::GDScript::-1::1727982029::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::9194677142122444141::1727987664::0::1::::<><>::res://player/player.gd<>uid://dna4nel554ucn::::res://player/MCSpriteSheet.png<>uid://cr2svmcl6jw8i::::res://player/spritesheet_no_attack.png<>uid://6ntinfuqmd4k::::res://player/Full Attack.png
+player_lavazone.gd::GDScript::-1::1727982029::0::1::::<>CharacterBody2D<>::
+player_pre-castle.gd::GDScript::-1::1727987410::0::1::::<>CharacterBody2D<>::
+spritesheet_no_attack.png::CompressedTexture2D::6022920950045572698::1727982029::1727982029::1::::<><>::
