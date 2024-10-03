@@ -18,6 +18,7 @@ offset_left = 719.0
 offset_top = 821.0
 offset_right = 1568.0
 offset_bottom = 960.0
+
 theme_override_font_sizes/font_size = 70
 text = "QUIT
 "
@@ -27,6 +28,7 @@ offset_left = 724.0
 offset_top = 591.0
 offset_right = 1566.0
 offset_bottom = 721.0
+
 theme_override_font_sizes/font_size = 70
 text = "SETTINGS"
 

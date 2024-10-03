@@ -1,4 +1,11 @@
-res://main.tscn
 res://world.tscn
+res://enemy/largeslime_pre-castle.gd
+res://intro.tscn
+res://main.tscn
+res://pre-castle.tscn
 res://player/player.tscn
-res://enemy/skeleton.tscn
+res://lava_zone.tscn
+res://enemy/smallslime.tscn
+res://level_end.tscn
+res://congrats.tscn
+res://congrats.gd

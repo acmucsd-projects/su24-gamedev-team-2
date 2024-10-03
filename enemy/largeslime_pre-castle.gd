@@ -17,8 +17,10 @@ var knockback_direction : Vector2
 var invincible = false
 var invincibility_duration = 0.7
 
-var pace_left = false
-var pace_right = true
+
+
+#var pace_left = false
+#var pace_right = true
 
 const DASH_ATTACK_SPEED = 200
 var dash_chance: int
@@ -91,24 +93,26 @@ func _physics_process(delta):
 		else:
 			velocity.x = direction.x * SPEED
 			get_node("AnimatedSprite2D").play("walk")
-	elif pace_left:
-		if get_node("AnimatedSprite2D").animation != "attack_basic" and \
-		get_node("AnimatedSprite2D").animation != "attack_heavy" and \
-		get_node("AnimatedSprite2D").animation != "attack_dash" and \
-		get_node("AnimatedSprite2D").animation != "hurt":
-			get_node("AnimatedSprite2D").play("walk")
-		get_node("AnimatedSprite2D").flip_h = false
-		Global.enemy_direction_left = false
-		velocity.x = -SPEED
-	elif pace_right:
-		if get_node("AnimatedSprite2D").animation != "attack_basic" and \
-		get_node("AnimatedSprite2D").animation != "attack_heavy" and \
-		get_node("AnimatedSprite2D").animation != "attack_dash" and \
-		get_node("AnimatedSprite2D").animation != "hurt":
-			get_node("AnimatedSprite2D").play("walk")
-		get_node("AnimatedSprite2D").flip_h = true
-		Global.enemy_direction_left = true
-		velocity.x = SPEED
+
+
+	#elif pace_left:
+		#if get_node("AnimatedSprite2D").animation != "attack_basic" and \
+		#get_node("AnimatedSprite2D").animation != "attack_heavy" and \
+		#get_node("AnimatedSprite2D").animation != "attack_dash" and \
+		#get_node("AnimatedSprite2D").animation != "hurt":
+			#get_node("AnimatedSprite2D").play("walk")
+		#get_node("AnimatedSprite2D").flip_h = false
+		#Global.enemy_direction_left = false
+		#velocity.x = -SPEED
+	#elif pace_right:
+		#if get_node("AnimatedSprite2D").animation != "attack_basic" and \
+		#get_node("AnimatedSprite2D").animation != "attack_heavy" and \
+		#get_node("AnimatedSprite2D").animation != "attack_dash" and \
+		#get_node("AnimatedSprite2D").animation != "hurt":
+			#get_node("AnimatedSprite2D").play("walk")
+		#get_node("AnimatedSprite2D").flip_h = true
+		#Global.enemy_direction_left = true
+		#velocity.x = SPEED
 
 	move_and_slide()
 	
@@ -119,8 +123,9 @@ func _physics_process(delta):
 func _on_area_2d_player_detection_body_entered(body):
 	if body.name == "player":
 		chase = true
-		pace_left = false
-		pace_right = false
+
+		#pace_left = false
+		#pace_right = false
 		can_dash = true
 		dash_duration = 2
 		dash_chance = randi_range(1, 2)
@@ -129,7 +134,8 @@ func _on_area_2d_player_detection_body_entered(body):
 func _on_area_2d_player_detection_body_exited(body):
 	if body.name == "player":
 		chase = false
-		pace_left = true
+
+		#pace_left = true
 		can_dash = false
 		get_node("AnimatedSprite2D").play("walk")
 
@@ -184,5 +190,5 @@ func invincibility() -> void:
 	invincibility_duration = 0.7
 
 func level_end_scene() -> void:
-	if get_tree(): #and get_node("AnimatedSprite2D").animation != "death":
-		get_tree().change_scene_to_file("res://level_end.tscn")
+	if get_tree() and get_node("AnimatedSprite2D").animation == "death":
+		get_tree().change_scene_to_file("res://congrats.tscn")

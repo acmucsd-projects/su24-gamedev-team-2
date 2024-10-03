@@ -1,4 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://dku4culf1g32u"]
+
+[gd_scene load_steps=29 format=3 uid="uid://dku4culf1g32u"]
 
 [ext_resource type="Script" path="res://lava.gd" id="1_hqslg"]
 [ext_resource type="Script" path="res://pre-castle.gd" id="1_qgtqd"]
@@ -23,7 +24,8 @@ colors = PackedColorArray(1, 0.792157, 0.109804, 1, 0.6, 0.054, 0.054, 1, 0.77, 
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pdoqf"]
 frequency = 0.004
-offset = Vector3(0, 14710.1, 2941.79)
+
+offset = Vector3(0, 1649.79, 329.972)
 fractal_type = 3
 fractal_octaves = 2
 fractal_lacunarity = 1.4
@@ -83,6 +85,10 @@ size = Vector2(62.5, 36.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxbx8"]
 size = Vector2(38.245, 52.75)
 
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vall8"]
+size = Vector2(54.375, 59)
+
 [node name="Pre-castle" type="Node2D"]
 script = ExtResource("1_qgtqd")
 
@@ -122,7 +128,8 @@ texture = SubResource("NoiseTexture2D_u83ja")
 script = SubResource("GDScript_cqy56")
 
 [node name="checkpoint" type="StaticBody2D" parent="."]
-position = Vector2(-427, -644)
+
+position = Vector2(-439, -600)
 collision_layer = 7
 collision_mask = 7
 metadata/_edit_group_ = true
@@ -138,7 +145,8 @@ scale = Vector2(0.631957, 0.517611)
 polygon = PackedVector2Array(613, 933, 483, 1049, 482, 1180, 756, 1178, 758, 1049)
 
 [node name="block1" type="StaticBody2D" parent="."]
-position = Vector2(216, 292)
+
+position = Vector2(193, 340)
 collision_layer = 7
 collision_mask = 7
 metadata/_edit_group_ = true
@@ -202,7 +210,8 @@ offset_right = 2044.0
 offset_bottom = 468.0
 
 [node name="block5" type="StaticBody2D" parent="."]
-position = Vector2(232, 279)
+
+position = Vector2(242, 322)
 collision_layer = 7
 collision_mask = 7
 metadata/_edit_group_ = true
@@ -312,7 +321,8 @@ position = Vector2(1664, 614)
 shape = SubResource("RectangleShape2D_mxbx8")
 
 [node name="player" parent="." instance=ExtResource("2_07gme")]
-position = Vector2(255, 310)
+
+position = Vector2(48, 27)
 script = ExtResource("4_4sbij")
 
 [node name="block17" type="StaticBody2D" parent="."]
@@ -324,38 +334,42 @@ position = Vector2(1554.88, 319.375)
 shape = SubResource("RectangleShape2D_mxbx8")
 
 [node name="small slime" parent="." instance=ExtResource("4_oybbq")]
-position = Vector2(1726, 204)
+
+position = Vector2(1858, 144)
 script = ExtResource("5_nxd5d")
 
 [node name="large slime" parent="." instance=ExtResource("7_umj8d")]
-position = Vector2(338, 611)
+position = Vector2(2004, 612)
 script = ExtResource("8_ak8qo")
 knockback_force = 500.0
 
 [node name="small slime2" parent="." instance=ExtResource("4_oybbq")]
-position = Vector2(755, 615)
+
+position = Vector2(753, 622)
 script = ExtResource("5_nxd5d")
 
 [node name="small slime3" parent="." instance=ExtResource("4_oybbq")]
-position = Vector2(2120, 622)
+position = Vector2(1481, 445)
 script = ExtResource("5_nxd5d")
-
-[node name="large slime2" parent="." instance=ExtResource("7_umj8d")]
-top_level = true
-position = Vector2(1998, 612)
-script = ExtResource("8_ak8qo")
-knockback_force = 500.0
 
 [node name="small slime4" parent="." instance=ExtResource("4_oybbq")]
 position = Vector2(2147, 336)
 script = ExtResource("5_nxd5d")
 
-[node name="large slime3" parent="." instance=ExtResource("7_umj8d")]
-top_level = true
-position = Vector2(1926, 166)
-script = ExtResource("8_ak8qo")
-knockback_force = 500.0
 
 [node name="small slime5" parent="." instance=ExtResource("4_oybbq")]
 position = Vector2(947, 278)
 script = ExtResource("5_nxd5d")
+
+[node name="checkpoint-final" type="StaticBody2D" parent="."]
+position = Vector2(3, 11)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint-final"]
+position = Vector2(1382.19, 432.5)
+shape = SubResource("RectangleShape2D_vall8")
+
+[node name="Area2D" type="Area2D" parent="checkpoint-final/CollisionShape2D"]
+
+[connection signal="mouse_shape_entered" from="checkpoint-final" to="." method="_on_checkpointfinal_mouse_shape_entered"]
+[connection signal="body_entered" from="checkpoint-final/CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]

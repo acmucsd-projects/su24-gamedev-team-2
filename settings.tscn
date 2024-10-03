@@ -54,6 +54,7 @@ offset_left = 2.0
 offset_top = 58.0
 offset_right = 2306.0
 offset_bottom = 89.0
+
 item_count = 4
 selected = 3
 popup/item_0/text = "1920x1080"
@@ -69,3 +70,4 @@ popup/item_3/id = 3
 [connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="CheckBox/Resolutions" to="." method="_on_resolutions_item_selected"]
+
