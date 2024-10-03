@@ -1,49 +1,54 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1727979040
+::res://::1727991094
 AnimationSheet_Character.png::CompressedTexture2D::430375940426237450::1724619713::1724619713::1::::<><>::
 Armor.gd::GDScript::-1::1727969980::0::1::::<>Area2D<>::
-armor.tscn::PackedScene::3418000325177413315::1727979039::0::1::::<><>::res://armor._in.gd
+armor.tscn::PackedScene::3418000325177413315::1727982498::0::1::::<><>::res://armor._in.gd
 armor._in.gd::GDScript::-1::1727969980::0::1::::<>Node2D<>::
 ArmorNPC.gd::GDScript::-1::1727969980::0::1::::<>CharacterBody2D<>::
+dialogue.gd::GDScript::-1::1727982129::0::1::::<>Control<>::
+dialogue.tscn::PackedScene::6309251873763623710::1727982498::0::1::::<><>::uid://k88mhyt4r3f4::::res://dialogueb.PNG<>res://dialogue.gd
 dialogueb.PNG::CompressedTexture2D::772038398193933039::1727975236::1727975280::1::::<><>::
 exit.gd::GDScript::-1::1727969980::0::1::::<>Area2D<>::
 global.gd::GDScript::-1::1724619713::0::1::::<>Node<>::
 main.gd::GDScript::-1::1727969980::0::1::::<>Node2D<>::
-main.tscn::PackedScene::4784525461696859459::1727979039::0::1::::<><>::res://main.gd
+main.tscn::PackedScene::4784525461696859459::1727982497::0::1::::<><>::res://main.gd
 potion.gd::GDScript::-1::1727977961::0::1::::<>Node2D<>::
-potion.tscn::PackedScene::6036206528116735427::1727979039::0::1::::<><>::res://potion.gd<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png
+potion.tscn::PackedScene::6036206528116735427::1727982498::0::1::::<><>::res://potion.gd<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png
 PotionNPC.gd::GDScript::-1::1727976676::0::1::::<>CharacterBody2D<>::
 Potion_detect.gd::GDScript::-1::1727969980::0::1::::<>Area2D<>::
-dialogue.tscn::PackedScene::6309251873763623710::1727979039::0::1::::<><>::uid://k88mhyt4r3f4::::res://dialogueb.PNG
-talk_potion.gd::GDScript::-1::1727979038::0::1::::<>Node2D<>::
-talk_potion.tscn::PackedScene::9211771732874238231::1727979040::0::1::::<><>::res://talk_potion.gd<>uid://cv5ipr16133ck::::res://dialogue.tscn<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png
 respawn.gd::GDScript::-1::1724619713::0::1::::<>Node2D<>::
 respawn.tscn::PackedScene::4597698927359744203::1724619713::0::1::::<><>::res://respawn.gd
 shop.gd::GDScript::-1::1727969980::0::1::::<>Node2D<>::
 Skeleton enemy.png::CompressedTexture2D::2026478523736852579::1724619713::1724619713::1::::<><>::
 spritesheet_no_attack.png::CompressedTexture2D::2540785077280466260::1727954365::1727954396::1::::<><>::
+talk_potion.gd::GDScript::-1::1727982094::0::1::::<>Node2D<>::
+talk_potion.tscn::PackedScene::9211771732874238231::1727982498::0::1::::<><>::res://talk_potion.gd<>uid://cv5ipr16133ck::::res://dialogue.tscn<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png
 town.gd::GDScript::-1::1727969980::0::1::::<>Area2D<>::
-town.tscn::PackedScene::2422447429676863896::1727979039::0::1::::<><>::res://shop.gd<>res://Armor.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>res://exit.gd<>res://player/player_town.gd<>uid://ccp7lm256nfrq::::res://town_background.png<>res://Potion_detect.gd<>res://PotionNPC.gd<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png<>res://ArmorNPC.gd<>uid://dguh5rqiygb45::::res://npc/sk3-anim-sheet-bgless.png<>res://weapon_detect.gd<>res://WeaponNPC.gd<>uid://cd61mcp8dy6gh::::res://npc/sk1-anim-sheet-bgless.png
+town.tscn::PackedScene::2422447429676863896::1727982498::0::1::::<><>::res://shop.gd<>res://Armor.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>res://exit.gd<>res://player/player_town.gd<>uid://ccp7lm256nfrq::::res://town_background.png<>res://Potion_detect.gd<>res://PotionNPC.gd<>uid://dif7jrdcja40y::::res://npc/sk2-anim-sheet-bgless.png<>res://ArmorNPC.gd<>uid://dguh5rqiygb45::::res://npc/sk3-anim-sheet-bgless.png<>res://weapon_detect.gd<>res://WeaponNPC.gd<>uid://cd61mcp8dy6gh::::res://npc/sk1-anim-sheet-bgless.png
 town_background.png::CompressedTexture2D::4946147981869571646::1727902571::1727902573::1::::<><>::
 weapon.gd::GDScript::-1::1727969980::0::1::::<>Node2D<>::
-weapon.tscn::PackedScene::7332176553336737040::1727979039::0::1::::<><>::res://weapon.gd
+weapon.tscn::PackedScene::7332176553336737040::1727982498::0::1::::<><>::res://weapon.gd
 WeaponNPC.gd::GDScript::-1::1727969980::0::1::::<>CharacterBody2D<>::
 weapon_detect.gd::GDScript::-1::1727970144::0::1::::<>Area2D<>::
 world.gd::GDScript::-1::1727969980::0::1::::<>Node2D<>::
-world.tscn::PackedScene::7163943282554114354::1727979039::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/skeleton.tscn<>res://town.gd
-::res://enemy/::1727979039
+world.tscn::PackedScene::7163943282554114354::1727982497::0::1::::<><>::res://world.gd<>uid://d3878vqnvxs82::::res://player/player.tscn<>uid://lybotj3vh6v7::::res://enemy/skeleton.tscn<>res://town.gd
+::res://dialogue/::1727981594
+potiondialogue1.json::JSON::-1::1727980455::0::1::::<><>::
+potiondialogue2.json::JSON::-1::1727981577::0::1::::<><>::
+potiondialogue3.json::JSON::-1::1727981594::0::1::::<><>::
+::res://enemy/::1727982498
 skeleton.gd::GDScript::-1::1727969980::0::1::::<>CharacterBody2D<>::
-skeleton.tscn::PackedScene::821709077370684974::1727979039::0::1::::<><>::uid://34v2m3edfkgx::::res://Skeleton enemy.png<>res://enemy/skeleton.gd
+skeleton.tscn::PackedScene::821709077370684974::1727982498::0::1::::<><>::uid://34v2m3edfkgx::::res://Skeleton enemy.png<>res://enemy/skeleton.gd
 ::res://npc/::1727974055
 dialogueb.png::CompressedTexture2D::6839010722378400117::1727974055::1727974020::1::::<><>::
 sk1-anim-sheet-bgless.png::CompressedTexture2D::5049003809738063007::1727959092::1727959117::1::::<><>::
 sk2-anim-sheet-bgless.png::CompressedTexture2D::7733054602501829998::1727959053::1727959117::1::::<><>::
 sk3-anim-sheet-bgless.png::CompressedTexture2D::7622162178764821676::1727959100::1727959117::1::::<><>::
-::res://player/::1727979039
+::res://player/::1727982497
 Full Attack.png::CompressedTexture2D::2203859664253722896::1727955326::1727955907::1::::<><>::
 MCSpriteSheet.png::CompressedTexture2D::8073501254975280233::1727955326::1727955907::1::::<><>::
 player.gd::GDScript::-1::1727969980::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::9194677142122444141::1727979039::0::1::::<><>::res://player/player.gd<>uid://cr2svmcl6jw8i::::res://player/spritesheet_no_attack.png<>uid://6ntinfuqmd4k::::res://player/Full Attack.png
+player.tscn::PackedScene::9194677142122444141::1727982497::0::1::::<><>::res://player/player.gd<>uid://cr2svmcl6jw8i::::res://player/spritesheet_no_attack.png<>uid://6ntinfuqmd4k::::res://player/Full Attack.png
 player_lavazone.gd::GDScript::-1::1727955326::0::1::::<>CharacterBody2D<>::
 player_town.gd::GDScript::-1::1727969980::0::1::::<>CharacterBody2D<>::
 spritesheet_no_attack.png::CompressedTexture2D::6022920950045572698::1727955326::1727955907::1::::<><>::

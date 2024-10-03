@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cr88o7gyne7n0"]
+[gd_scene load_steps=18 format=3 uid="uid://cr88o7gyne7n0"]
 
 [ext_resource type="Script" path="res://potion.gd" id="1_8lg4o"]
 [ext_resource type="Texture2D" uid="uid://dif7jrdcja40y" path="res://npc/sk2-anim-sheet-bgless.png" id="3_18nyi"]
@@ -27,21 +27,25 @@ region = Rect2(128, 64, 32, 32)
 atlas = ExtResource("3_18nyi")
 region = Rect2(160, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ft8rd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4uew"]
 atlas = ExtResource("3_18nyi")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ggdd"]
 atlas = ExtResource("3_18nyi")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ymbu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8rd"]
 atlas = ExtResource("3_18nyi")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jglp1"]
 atlas = ExtResource("3_18nyi")
 region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymbu"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u2is"]
 animations = [{
@@ -63,6 +67,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5yqrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4uew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o17ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvi2e")
 }],
 "loop": true,
 "name": &"give",
@@ -70,10 +83,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ft8rd")
+"texture": SubResource("AtlasTexture_0ggdd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ggdd")
+"texture": SubResource("AtlasTexture_ft8rd")
 }],
 "loop": true,
 "name": &"idle",
@@ -81,10 +94,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ymbu")
+"texture": SubResource("AtlasTexture_jglp1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jglp1")
+"texture": SubResource("AtlasTexture_4ymbu")
 }],
 "loop": true,
 "name": &"talk",
@@ -204,6 +217,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Control"]
+wait_time = 2.0
 
 [node name="des" type="Label" parent="Control"]
 layout_mode = 0
@@ -224,9 +238,11 @@ texture_filter = 1
 position = Vector2(539, 882)
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_7u2is")
-animation = &"give"
+animation = &"idle"
 
 [node name="talk" type="Button" parent="Control"]
+z_index = -1
+layout_mode = 0
 offset_left = 294.0
 offset_top = 958.0
 offset_right = 830.0
@@ -252,9 +268,13 @@ offset_top = 301.0
 offset_right = 2182.0
 offset_bottom = 1216.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="Control/buy" to="." method="_on_buy_pressed"]
 [connection signal="pressed" from="Control/next" to="." method="_on_next_pressed"]
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/talk" to="." method="_on_talk_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

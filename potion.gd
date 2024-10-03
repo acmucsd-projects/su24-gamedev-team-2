@@ -46,6 +46,8 @@ func switch_item(select):
 func _on_buy_pressed():
 	var hasItem = false
 	if gold >= items[currentItem]["Cost"]:
+		$Control/Timer.start()
+		$Control/AnimatedSprite2D.play("give")
 		for i in inventory:
 			if inventory[i]["Name"] == items[currentItem]["Name"]:
 				inventory[i]["Count"] += 1

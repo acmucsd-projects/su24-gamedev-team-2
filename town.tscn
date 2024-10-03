@@ -535,7 +535,7 @@ scale = Vector2(1.00224, 0.997999)
 script = ExtResource("3_nhtvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit_detect"]
-position = Vector2(-1331.02, 1569.14)
+position = Vector2(3977.09, 1653.31)
 scale = Vector2(1.0023, 1.00687)
 shape = SubResource("RectangleShape2D_jpgjg")
 
