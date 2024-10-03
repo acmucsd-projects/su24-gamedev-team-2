@@ -2,6 +2,7 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
+
 var in_checkpoint_range=false
 var can_teleport_to_congrats = false
 

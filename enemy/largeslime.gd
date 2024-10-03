@@ -31,6 +31,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
+	if Global.num_enemies == 0:
+		level_end_scene()
+	
 	if invincible:
 		invincibility_duration -= delta
 		if invincibility_duration <= 0:
@@ -137,7 +140,7 @@ func _on_area_2d_strike_body_entered(body):
 	if body.name == "player" and body.health > 0:
 		is_striking = true
 		if is_striking and can_dash and is_dashing:
-			body.health -= 7
+			body.health -= 6
 			var direction = (body.position - position).normalized()
 			body.call("apply_knockback", direction * knockback_force)
 			can_dash = false
@@ -153,13 +156,13 @@ func _on_area_2d_strike_body_entered(body):
 				if light_or_heavy == 5:
 					get_node("AnimatedSprite2D").play("attack_heavy")
 					await get_node("AnimatedSprite2D").animation_finished
-					body.health -= 10
+					body.health -= 8
 					var direction = (body.position - position).normalized()
 					body.call("apply_knockback", direction * knockback_force)
 				else:
 					get_node("AnimatedSprite2D").play("attack_basic")
 					await get_node("AnimatedSprite2D").animation_finished
-					body.health -= 5
+					body.health -= 4
 					var direction = (body.position - position).normalized()
 					body.call("apply_knockback", direction * knockback_force)
 				if body.health <= 0:

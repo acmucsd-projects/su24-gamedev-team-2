@@ -17,6 +17,8 @@ var knockback_direction : Vector2
 var invincible = false
 var invincibility_duration = 0.7
 
+
+
 #var pace_left = false
 #var pace_right = true
 
@@ -91,6 +93,8 @@ func _physics_process(delta):
 		else:
 			velocity.x = direction.x * SPEED
 			get_node("AnimatedSprite2D").play("walk")
+
+
 	#elif pace_left:
 		#if get_node("AnimatedSprite2D").animation != "attack_basic" and \
 		#get_node("AnimatedSprite2D").animation != "attack_heavy" and \
@@ -119,6 +123,7 @@ func _physics_process(delta):
 func _on_area_2d_player_detection_body_entered(body):
 	if body.name == "player":
 		chase = true
+
 		#pace_left = false
 		#pace_right = false
 		can_dash = true
@@ -129,6 +134,7 @@ func _on_area_2d_player_detection_body_entered(body):
 func _on_area_2d_player_detection_body_exited(body):
 	if body.name == "player":
 		chase = false
+
 		#pace_left = true
 		can_dash = false
 		get_node("AnimatedSprite2D").play("walk")

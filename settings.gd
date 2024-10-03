@@ -23,3 +23,7 @@ func _on_resolutions_item_selected(index):
 		3:
 			DisplayServer.window_set_size(Vector2i(2304, 1296))
 		
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://main.tscn")
+

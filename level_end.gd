@@ -3,7 +3,7 @@ extends Node2D
 
 
 func _on_back_to_town_pressed():
-	Global.player_position = Vector2(0, 0)
+	Global.player_position = Vector2(255, 310)
 	Global.player_health = 100
 	Global.player_direction_left = false
 	Global.respawn = true

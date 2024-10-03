@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=29 format=3 uid="uid://dku4culf1g32u"]
 
 [ext_resource type="Script" path="res://lava.gd" id="1_hqslg"]
@@ -23,6 +24,7 @@ colors = PackedColorArray(1, 0.792157, 0.109804, 1, 0.6, 0.054, 0.054, 1, 0.77, 
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pdoqf"]
 frequency = 0.004
+
 offset = Vector3(0, 1649.79, 329.972)
 fractal_type = 3
 fractal_octaves = 2
@@ -83,6 +85,7 @@ size = Vector2(62.5, 36.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxbx8"]
 size = Vector2(38.245, 52.75)
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vall8"]
 size = Vector2(54.375, 59)
 
@@ -125,6 +128,7 @@ texture = SubResource("NoiseTexture2D_u83ja")
 script = SubResource("GDScript_cqy56")
 
 [node name="checkpoint" type="StaticBody2D" parent="."]
+
 position = Vector2(-439, -600)
 collision_layer = 7
 collision_mask = 7
@@ -141,6 +145,7 @@ scale = Vector2(0.631957, 0.517611)
 polygon = PackedVector2Array(613, 933, 483, 1049, 482, 1180, 756, 1178, 758, 1049)
 
 [node name="block1" type="StaticBody2D" parent="."]
+
 position = Vector2(193, 340)
 collision_layer = 7
 collision_mask = 7
@@ -205,6 +210,7 @@ offset_right = 2044.0
 offset_bottom = 468.0
 
 [node name="block5" type="StaticBody2D" parent="."]
+
 position = Vector2(242, 322)
 collision_layer = 7
 collision_mask = 7
@@ -315,6 +321,7 @@ position = Vector2(1664, 614)
 shape = SubResource("RectangleShape2D_mxbx8")
 
 [node name="player" parent="." instance=ExtResource("2_07gme")]
+
 position = Vector2(48, 27)
 script = ExtResource("4_4sbij")
 
@@ -327,6 +334,7 @@ position = Vector2(1554.88, 319.375)
 shape = SubResource("RectangleShape2D_mxbx8")
 
 [node name="small slime" parent="." instance=ExtResource("4_oybbq")]
+
 position = Vector2(1858, 144)
 script = ExtResource("5_nxd5d")
 
@@ -336,6 +344,7 @@ script = ExtResource("8_ak8qo")
 knockback_force = 500.0
 
 [node name="small slime2" parent="." instance=ExtResource("4_oybbq")]
+
 position = Vector2(753, 622)
 script = ExtResource("5_nxd5d")
 
@@ -346,6 +355,7 @@ script = ExtResource("5_nxd5d")
 [node name="small slime4" parent="." instance=ExtResource("4_oybbq")]
 position = Vector2(2147, 336)
 script = ExtResource("5_nxd5d")
+
 
 [node name="small slime5" parent="." instance=ExtResource("4_oybbq")]
 position = Vector2(947, 278)

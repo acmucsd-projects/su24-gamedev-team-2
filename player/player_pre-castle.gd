@@ -84,6 +84,7 @@ func _physics_process(delta):
 		if anim.current_animation != "strike":
 			anim.play("strike")
 			is_striking = true  # Set flag to prevent other animations
+
 			if Global.enemy_health > 0 and self.health>0:
 				var distance = large_slime.position - self.position
 				if abs(distance.x) <= 50:
