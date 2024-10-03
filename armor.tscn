@@ -49,6 +49,7 @@ offset_right = 2193.0
 offset_bottom = 540.0
 theme_override_font_sizes/font_size = 100
 text = "X"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 824.0
@@ -60,6 +61,7 @@ text = "Armor shop
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -67,6 +69,7 @@ anchors_preset = 0
 offset_top = 40.0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="des" type="Label" parent="Control"]
 layout_mode = 0
@@ -80,6 +83,7 @@ text = "description
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Buy!" type="Button" parent="Control"]
 layout_mode = 0
@@ -89,6 +93,7 @@ offset_right = 1438.0
 offset_bottom = 1515.0
 theme_override_font_sizes/font_size = 100
 text = "Buy"
+metadata/_edit_use_anchors_ = true
 
 [node name="prev" type="Button" parent="Control"]
 layout_mode = 0
@@ -99,6 +104,7 @@ offset_bottom = 879.0
 theme_override_font_sizes/font_size = 100
 text = "<
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="next" type="Button" parent="Control"]
 layout_mode = 0
@@ -108,6 +114,7 @@ offset_right = 1835.0
 offset_bottom = 878.0
 theme_override_font_sizes/font_size = 100
 text = ">"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
 
@@ -122,6 +129,7 @@ text = "name
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

@@ -90,6 +90,7 @@ func _physics_process(delta):
 	
 	if direction:
 		if DASHING and is_on_floor():
+			anim.play("dash")
 			velocity.x = direction * DASH_SPEED
 		elif is_striking and is_on_floor():
 			velocity.x = direction * STRIKE_SPEED

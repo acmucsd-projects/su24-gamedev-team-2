@@ -1,0 +1,260 @@
+[gd_scene load_steps=17 format=3 uid="uid://cr88o7gyne7n0"]
+
+[ext_resource type="Script" path="res://potion.gd" id="1_8lg4o"]
+[ext_resource type="Texture2D" uid="uid://dif7jrdcja40y" path="res://npc/sk2-anim-sheet-bgless.png" id="3_18nyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvi2e"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o17ci"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maesk"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeoyg"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ogs"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yqrx"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8rd"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ggdd"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymbu"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jglp1"]
+atlas = ExtResource("3_18nyi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u2is"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvi2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o17ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeoyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ogs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yqrx")
+}],
+"loop": true,
+"name": &"give",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ggdd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ymbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jglp1")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 1.5
+}]
+
+[sub_resource type="Animation" id="Animation_6mlg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1q3lq"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaqds"]
+_data = {
+"RESET": SubResource("Animation_6mlg2"),
+"TransIn": SubResource("Animation_1q3lq")
+}
+
+[node name="potion" type="Node2D"]
+position = Vector2(-40, -297)
+script = ExtResource("1_8lg4o")
+
+[node name="exit" type="Button" parent="."]
+offset_left = 2067.0
+offset_top = 345.0
+offset_right = 2254.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 100
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 846.0
+offset_top = 294.0
+offset_right = 1589.0
+offset_bottom = 497.0
+theme_override_font_sizes/font_size = 80
+text = "Potion shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="prev" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 628.0
+offset_right = 1263.0
+offset_bottom = 802.0
+theme_override_font_sizes/font_size = 100
+text = "<
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="buy" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1328.0
+offset_top = 1275.0
+offset_right = 1864.0
+offset_bottom = 1420.0
+theme_override_font_sizes/font_size = 100
+text = "buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="next" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1952.0
+offset_top = 627.0
+offset_right = 2096.0
+offset_bottom = 801.0
+theme_override_font_sizes/font_size = 100
+text = ">"
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1230.0
+offset_top = 643.0
+offset_right = 1973.0
+offset_bottom = 770.0
+theme_override_font_sizes/font_size = 80
+text = "name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Control"]
+
+[node name="des" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 949.0
+offset_right = 1837.0
+offset_bottom = 1172.0
+theme_override_font_sizes/font_size = 80
+text = "description
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(539, 882)
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_7u2is")
+animation = &"give"
+
+[node name="talk" type="Button" parent="Control"]
+offset_left = 294.0
+offset_top = 958.0
+offset_right = 830.0
+offset_bottom = 1103.0
+theme_override_font_sizes/font_size = 100
+text = "talk
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_yaqds")
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 98.0
+offset_top = 301.0
+offset_right = 2182.0
+offset_bottom = 1216.0
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Control/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="Control/next" to="." method="_on_next_pressed"]
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/talk" to="." method="_on_talk_pressed"]

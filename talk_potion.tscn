@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=3 uid="uid://d4iisf8jregwd"]
+
+[ext_resource type="Script" path="res://talk_potion.gd" id="1_prrth"]
+[ext_resource type="PackedScene" uid="uid://cv5ipr16133ck" path="res://dialogue.tscn" id="2_cj7go"]
+[ext_resource type="Texture2D" uid="uid://dif7jrdcja40y" path="res://npc/sk2-anim-sheet-bgless.png" id="3_kvoaw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvi2e"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o17ci"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maesk"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeoyg"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ogs"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yqrx"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8rd"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ggdd"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymbu"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jglp1"]
+atlas = ExtResource("3_kvoaw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywfhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvi2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o17ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeoyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ogs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yqrx")
+}],
+"loop": true,
+"name": &"give",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ggdd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ymbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jglp1")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 1.5
+}]
+
+[node name="talk_potion" type="Node2D"]
+script = ExtResource("1_prrth")
+
+[node name="Control" parent="." instance=ExtResource("2_cj7go")]
+offset_left = -215.0
+offset_top = 58.0
+offset_right = 247.0
+offset_bottom = 362.0
+
+[node name="Ingre" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1572.0
+offset_top = 488.0
+offset_right = 2470.0
+offset_bottom = 633.0
+theme_override_font_sizes/font_size = 100
+text = "Potion Ingredients"
+metadata/_edit_use_anchors_ = true
+
+[node name="New" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1740.0
+offset_top = 196.0
+offset_right = 2276.0
+offset_bottom = 341.0
+theme_override_font_sizes/font_size = 100
+text = "New Faces"
+metadata/_edit_use_anchors_ = true
+
+[node name="Corruption" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 803.0
+offset_right = 2404.0
+offset_bottom = 948.0
+theme_override_font_sizes/font_size = 100
+text = "Corruption Cure
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(641, 412)
+scale = Vector2(18, 18)
+sprite_frames = SubResource("SpriteFrames_ywfhm")
+animation = &"give"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 98.0
+offset_top = 65.0
+offset_right = 285.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 100
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Ingre" to="Control" method="_on_ingre_pressed"]
+[connection signal="pressed" from="Control/New" to="Control" method="_on_new_pressed"]
+[connection signal="pressed" from="Control/Corruption" to="Control" method="_on_corruption_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

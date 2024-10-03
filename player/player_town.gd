@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var health = 100
 var current_health = health
-const SPEED = 200
+const SPEED = 350
 const STRIKE_SPEED = 0.0
 const JUMP_VELOCITY = -400.0
 var DASH_SPEED = 600

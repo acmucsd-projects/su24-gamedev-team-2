@@ -15,7 +15,7 @@ size = Vector2(37, 485.25)
 size = Vector2(70, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgynu"]
-size = Vector2(119, 102)
+size = Vector2(183, 137)
 
 [sub_resource type="GDScript" id="GDScript_5f6qr"]
 script/source = "extends Label
@@ -82,7 +82,7 @@ text = "town
 script = ExtResource("4_icwhm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/town/shop (detection)"]
-position = Vector2(9.5, 0)
+position = Vector2(55, -20)
 shape = SubResource("RectangleShape2D_tgynu")
 
 [node name="town panel" type="Panel" parent="StaticBody2D/town/shop (detection)"]

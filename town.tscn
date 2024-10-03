@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://barpmcwpyj6oy"]
+[gd_scene load_steps=76 format=3 uid="uid://barpmcwpyj6oy"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_tedvv"]
 [ext_resource type="Script" path="res://Armor.gd" id="2_kcsh6"]
@@ -6,46 +6,467 @@
 [ext_resource type="Script" path="res://exit.gd" id="3_nhtvs"]
 [ext_resource type="Script" path="res://player/player_town.gd" id="4_f65x1"]
 [ext_resource type="Texture2D" uid="uid://ccp7lm256nfrq" path="res://town_background.png" id="6_w25lc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iecia"]
-size = Vector2(122.976, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho4m5"]
-size = Vector2(184.884, 37)
+[ext_resource type="Script" path="res://Potion_detect.gd" id="7_68na3"]
+[ext_resource type="Script" path="res://PotionNPC.gd" id="8_475k5"]
+[ext_resource type="Texture2D" uid="uid://dif7jrdcja40y" path="res://npc/sk2-anim-sheet-bgless.png" id="9_dtmpq"]
+[ext_resource type="Script" path="res://ArmorNPC.gd" id="10_j4p7f"]
+[ext_resource type="Texture2D" uid="uid://dguh5rqiygb45" path="res://npc/sk3-anim-sheet-bgless.png" id="11_4shgc"]
+[ext_resource type="Script" path="res://weapon_detect.gd" id="12_epvu7"]
+[ext_resource type="Script" path="res://WeaponNPC.gd" id="13_ydfjt"]
+[ext_resource type="Texture2D" uid="uid://cd61mcp8dy6gh" path="res://npc/sk1-anim-sheet-bgless.png" id="14_8slaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pptj"]
-size = Vector2(4594.9, 826.5)
+size = Vector2(4623.45, 826.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u074"]
-size = Vector2(524.515, 615.5)
+size = Vector2(528, 642)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5thx"]
-size = Vector2(635.5, 1305)
+size = Vector2(370, 2474)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8onks"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8sw7"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okexg"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g88sa"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk35h"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_solsj"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsgcl"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wd7"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whq74"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mfvf"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlr4d"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vry6u"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jypy"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v2ep"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrmja"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4hh"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ed55"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxxfh"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phenl"]
+atlas = ExtResource("11_4shgc")
+region = Rect2(288, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa6uv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8onks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8sw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okexg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g88sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk35h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_solsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsgcl")
+}],
+"loop": true,
+"name": &"give",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34wd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whq74")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mfvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlr4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vry6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jypy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v2ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrmja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb4hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ed55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxxfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phenl")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fb61d"]
+radius = 672.0
+height = 2624.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpgjg"]
 size = Vector2(657.314, 624.573)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7nsf"]
-size = Vector2(293.625, 388)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xklnr"]
+size = Vector2(568, 702)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ocmg"]
-size = Vector2(2311.41, 240.631)
+[sub_resource type="CircleShape2D" id="CircleShape2D_fguo6"]
+radius = 1048.23
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvi2e"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o17ci"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maesk"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeoyg"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ogs"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yqrx"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8rd"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ggdd"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymbu"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jglp1"]
+atlas = ExtResource("9_dtmpq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8i6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvi2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o17ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maesk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeoyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ogs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yqrx")
+}],
+"loop": true,
+"name": &"give",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ggdd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ymbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jglp1")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 1.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkkon"]
+size = Vector2(161, 2537)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfiod"]
+radius = 448.0
+height = 924.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5flb"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy05a"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x88u2"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxump"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8tjx"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruo4v"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehx2g"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pqix"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qhi7"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryhoi"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywmr8"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q22da"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0oyd"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nabhi"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6n08"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxv0x"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t77uy"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78pvj"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uis3q"]
+atlas = ExtResource("14_8slaq")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7vk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5flb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy05a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x88u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxump")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8tjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruo4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehx2g")
+}],
+"loop": true,
+"name": &"give",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pqix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qhi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryhoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywmr8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q22da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0oyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nabhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6n08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxv0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t77uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78pvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uis3q")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um1pu"]
+radius = 404.0
+height = 1508.0
 
 [node name="town" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tedvv")
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2294, 1682)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position = Vector2(654, -2140)
-scale = Vector2(22046.6, -20734.3)
-offset = Vector2(100, 100)
-zoom = Vector2(1.5, 1.5)
+[node name="player" parent="." instance=ExtResource("2_trx6g")]
+top_level = true
+position = Vector2(581, 1257)
+scale = Vector2(3, 3)
+script = ExtResource("4_f65x1")
+
+[node name="dash_again2" type="Timer" parent="player"]
+wait_time = 0.6
+
+[node name="dash_duration2" type="Timer" parent="player"]
+wait_time = 0.2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -16.0
+offset_top = 326.0
+offset_right = 4614.0
+offset_bottom = 3512.0
+texture = ExtResource("6_w25lc")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 1876.0
 offset_top = 570.0
 offset_right = 2619.0
@@ -57,75 +478,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="bridge1" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge1"]
-position = Vector2(1958.81, 1221)
-shape = SubResource("RectangleShape2D_iecia")
-
-[node name="Panel" type="Panel" parent="bridge1"]
-offset_left = 1897.37
-offset_top = 1201.0
-offset_right = 2020.37
-offset_bottom = 1241.0
-
-[node name="bridge2" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge2"]
-position = Vector2(1720.48, 1082)
-shape = SubResource("RectangleShape2D_ho4m5")
-
-[node name="Panel" type="Panel" parent="bridge2"]
-offset_left = 1625.54
-offset_top = 1064.0
-offset_right = 1813.54
-offset_bottom = 1104.0
-
-[node name="bridge3" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge3"]
-position = Vector2(1502.62, 944)
-shape = SubResource("RectangleShape2D_ho4m5")
-
-[node name="Panel" type="Panel" parent="bridge3"]
-offset_left = 1403.68
-offset_top = 926.0
-offset_right = 1591.68
-offset_bottom = 966.0
-
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(1644.42, 1868.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(697.58, 1271.5)
+position = Vector2(659.855, 1351.5)
 shape = SubResource("RectangleShape2D_1pptj")
-
-[node name="Panel" type="Panel" parent="floor"]
-visible = false
-offset_left = -1384.42
-offset_top = -110.5
-offset_right = 1229.58
-offset_bottom = 709.5
 
 [node name="Armor_shop" type="StaticBody2D" parent="."]
 position = Vector2(2155, 1284)
 
-[node name="Armor2" type="Area2D" parent="Armor_shop"]
+[node name="Armor" type="Area2D" parent="Armor_shop"]
 script = ExtResource("2_kcsh6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop/Armor2"]
-position = Vector2(1489.26, 1115.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop/Armor"]
+position = Vector2(1581, 1185)
 shape = SubResource("RectangleShape2D_1u074")
-
-[node name="Armor" type="Panel" parent="Armor_shop"]
-visible = false
-offset_left = -979.001
-offset_top = -338.0
-offset_right = -745.001
-offset_bottom = -88.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Armor_shop"]
 visible = false
@@ -137,25 +505,29 @@ theme_override_font_sizes/normal_font_size = 70
 text = "armor
 "
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop"]
-position = Vector2(-1727, 782)
-shape = SubResource("RectangleShape2D_n5thx")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Armor_shop"]
-position = Vector2(2083, 774)
+position = Vector2(2644, 277)
 shape = SubResource("RectangleShape2D_n5thx")
 
-[node name="player" parent="." instance=ExtResource("2_trx6g")]
-top_level = true
-position = Vector2(625, 1220)
-scale = Vector2(3, 3)
-script = ExtResource("4_f65x1")
+[node name="ArmorNPC" type="CharacterBody2D" parent="Armor_shop"]
+position = Vector2(-2155, -1284)
+script = ExtResource("10_j4p7f")
 
-[node name="dash_again2" type="Timer" parent="player"]
-wait_time = 0.6
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Armor_shop/ArmorNPC"]
+texture_filter = 1
+position = Vector2(3724, 1568)
+scale = Vector2(9.104, 9)
+sprite_frames = SubResource("SpriteFrames_qa6uv")
+animation = &"talk"
 
-[node name="dash_duration2" type="Timer" parent="player"]
-wait_time = 0.2
+[node name="Chatdetection" type="Area2D" parent="Armor_shop/ArmorNPC"]
+position = Vector2(754, -1226)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Armor_shop/ArmorNPC/Chatdetection"]
+position = Vector2(3188, 2988)
+shape = SubResource("CapsuleShape2D_fb61d")
+
+[node name="Timer" type="Timer" parent="Armor_shop/ArmorNPC"]
 
 [node name="exit_detect" type="Area2D" parent="."]
 position = Vector2(730, 844)
@@ -163,25 +535,15 @@ scale = Vector2(1.00224, 0.997999)
 script = ExtResource("3_nhtvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit_detect"]
-position = Vector2(1798.12, 1386.97)
+position = Vector2(-1331.02, 1569.14)
 scale = Vector2(1.0023, 1.00687)
 shape = SubResource("RectangleShape2D_jpgjg")
 
-[node name="exit2" type="StaticBody2D" parent="."]
+[node name="exit" type="StaticBody2D" parent="."]
 position = Vector2(1500, -2594)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="exit2"]
-position = Vector2(2290, 1512)
-shape = SubResource("RectangleShape2D_i7nsf")
-
-[node name="Panel" type="Panel" parent="exit2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="exit"]
 visible = false
-offset_left = 2276.0
-offset_top = 578.0
-offset_right = 2568.0
-offset_bottom = 866.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="exit2"]
 offset_left = 932.0
 offset_top = 4502.0
 offset_right = 1297.0
@@ -190,37 +552,91 @@ theme_override_font_sizes/normal_font_size = 101
 text = "exit
 "
 
-[node name="floor2" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(771.011, 1026)
-scale = Vector2(0.230196, 0.351211)
+[node name="Potion_shop" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
-visible = false
-position = Vector2(212.814, 620.709)
-shape = SubResource("RectangleShape2D_7ocmg")
+[node name="Potion_detect" type="Area2D" parent="Potion_shop"]
+position = Vector2(-974, 1436)
+script = ExtResource("7_68na3")
 
-[node name="floor" type="Panel" parent="floor2"]
-visible = false
-offset_left = -1185.77
-offset_top = -113.892
-offset_right = 1114.23
-offset_bottom = 127.108
-metadata/_edit_use_anchors_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion_shop/Potion_detect"]
+position = Vector2(2012, 1011)
+shape = SubResource("RectangleShape2D_xklnr")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -1
-offset_left = -32.0
-offset_top = 346.0
-offset_right = 4572.0
-offset_bottom = 3444.0
-texture = ExtResource("6_w25lc")
+[node name="PotionNPC" type="CharacterBody2D" parent="Potion_shop"]
+position = Vector2(-558, 1526)
+script = ExtResource("8_475k5")
 
-[connection signal="body_entered" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_body_entered"]
-[connection signal="body_exited" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_body_exited"]
-[connection signal="mouse_entered" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Armor_shop/Armor2" to="Armor_shop/Armor2" method="_on_mouse_exited"]
+[node name="Chatdetection" type="Area2D" parent="Potion_shop/PotionNPC"]
+position = Vector2(558, -1526)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion_shop/PotionNPC/Chatdetection"]
+position = Vector2(956, 1798)
+shape = SubResource("CircleShape2D_fguo6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Potion_shop/PotionNPC"]
+texture_filter = 1
+position = Vector2(1456, 166)
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_q8i6b")
+animation = &"talk"
+
+[node name="Timer" type="Timer" parent="Potion_shop/PotionNPC"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion_shop"]
+position = Vector2(-72.5, 1529.5)
+shape = SubResource("RectangleShape2D_nkkon")
+
+[node name="Weapon_shop" type="StaticBody2D" parent="."]
+
+[node name="Weapon" type="Area2D" parent="Weapon_shop"]
+script = ExtResource("12_epvu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon_shop/Weapon"]
+position = Vector2(2834, 2092)
+shape = SubResource("CapsuleShape2D_rfiod")
+
+[node name="WeaponNPC" type="CharacterBody2D" parent="Weapon_shop"]
+position = Vector2(74, -218)
+script = ExtResource("13_ydfjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapon_shop/WeaponNPC"]
+texture_filter = 1
+position = Vector2(3002, 2538)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_j7vk4")
+animation = &"talk"
+
+[node name="Chatdetection" type="Area2D" parent="Weapon_shop/WeaponNPC"]
+position = Vector2(412, -264)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon_shop/WeaponNPC/Chatdetection"]
+position = Vector2(2392, 2532)
+shape = SubResource("CapsuleShape2D_um1pu")
+
+[node name="Timer" type="Timer" parent="Weapon_shop/WeaponNPC"]
+
+[connection signal="body_entered" from="Armor_shop/Armor" to="Armor_shop/Armor" method="_on_body_entered"]
+[connection signal="body_exited" from="Armor_shop/Armor" to="Armor_shop/Armor" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Armor_shop/Armor" to="Armor_shop/Armor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Armor_shop/Armor" to="Armor_shop/Armor" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Armor_shop/ArmorNPC/Chatdetection" to="Armor_shop/ArmorNPC" method="_on_chatdetection_body_entered"]
+[connection signal="body_exited" from="Armor_shop/ArmorNPC/Chatdetection" to="Armor_shop/ArmorNPC" method="_on_chatdetection_body_exited"]
+[connection signal="timeout" from="Armor_shop/ArmorNPC/Timer" to="Armor_shop/ArmorNPC" method="_on_timer_timeout"]
 [connection signal="body_entered" from="exit_detect" to="exit_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="exit_detect" to="exit_detect" method="_on_body_exited"]
 [connection signal="mouse_entered" from="exit_detect" to="exit_detect" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="exit_detect" to="exit_detect" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Potion_shop/Potion_detect" to="Potion_shop/Potion_detect" method="_on_body_entered"]
+[connection signal="body_exited" from="Potion_shop/Potion_detect" to="Potion_shop/Potion_detect" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Potion_shop/Potion_detect" to="Potion_shop/Potion_detect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Potion_shop/Potion_detect" to="Potion_shop/Potion_detect" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Potion_shop/PotionNPC/Chatdetection" to="Potion_shop/PotionNPC" method="_on_chatdetection_body_entered"]
+[connection signal="body_exited" from="Potion_shop/PotionNPC/Chatdetection" to="Potion_shop/PotionNPC" method="_on_chatdetection_body_exited"]
+[connection signal="timeout" from="Potion_shop/PotionNPC/Timer" to="Potion_shop/PotionNPC" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Weapon_shop/Weapon" to="Weapon_shop/Weapon" method="_on_body_entered"]
+[connection signal="body_exited" from="Weapon_shop/Weapon" to="Weapon_shop/Weapon" method="_on_body_exited"]
+[connection signal="mouse_entered" from="Weapon_shop/Weapon" to="Weapon_shop/Weapon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Weapon_shop/Weapon" to="Weapon_shop/Weapon" method="_on_mouse_exited"]
+[connection signal="body_entered" from="Weapon_shop/WeaponNPC/Chatdetection" to="Weapon_shop/WeaponNPC" method="_on_chatdetection_body_entered"]
+[connection signal="body_exited" from="Weapon_shop/WeaponNPC/Chatdetection" to="Weapon_shop/WeaponNPC" method="_on_chatdetection_body_exited"]
+[connection signal="timeout" from="Weapon_shop/WeaponNPC/Timer" to="Weapon_shop/WeaponNPC" method="_on_timer_timeout"]

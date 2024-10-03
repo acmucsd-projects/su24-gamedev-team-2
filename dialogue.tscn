@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv5ipr16133ck"]
+
+[ext_resource type="Texture2D" uid="uid://k88mhyt4r3f4" path="res://dialogueb.PNG" id="1_d1xjb"]
+[ext_resource type="Script" path="res://dialogue.gd" id="1_esnen"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_esnen")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 440.0
+offset_right = 1481.0
+offset_bottom = 1176.0
+texture = ExtResource("1_d1xjb")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 112.0
+offset_right = 293.0
+offset_bottom = 199.0
+scale = Vector2(4, 4)
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.034
+anchor_bottom = 0.278
+offset_left = 114.0
+offset_top = 209.0
+offset_right = 293.356
+offset_bottom = 105.392
+scale = Vector2(4, 4)
+text = "..."
