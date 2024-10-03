@@ -3,7 +3,7 @@ extends Node2D
 @export var enemy_scene: PackedScene # Drag and drop your Enemy.tscn here in the editor
 @export var min_enemies: int = 1
 @export var max_enemies: int = 3
-@export var spawn_area_size: Vector2 = Vector2(1500, -100)  # Adjust to fit your needs
+@export var spawn_area_size: Vector2 = Vector2(1000, -100)  # Adjust to fit your needs
 
 func _ready():
 	spawn_random_enemies()

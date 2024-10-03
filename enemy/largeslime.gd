@@ -184,5 +184,5 @@ func invincibility() -> void:
 	invincibility_duration = 0.7
 
 func level_end_scene() -> void:
-	if get_tree() and get_node("AnimatedSprite2D").animation != "death":
+	if get_tree(): #and get_node("AnimatedSprite2D").animation != "death":
 		get_tree().change_scene_to_file("res://level_end.tscn")

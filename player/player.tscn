@@ -862,7 +862,7 @@ metadata/_edit_lock_ = true
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
-limit_right = 2300
+limit_right = 1450
 limit_bottom = 685
 metadata/_edit_lock_ = true
 

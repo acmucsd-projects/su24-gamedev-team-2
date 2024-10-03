@@ -12,7 +12,7 @@ func _process(_delta):
 			get_tree().change_scene_to_file("res://shop.tscn")
 	if in_lava_range and can_teleport_to_lava:
 		if Input.is_action_just_pressed("ui_right_click"):
-			Global.player_position = Vector2(2160, 217)
+			Global.player_position = Vector2(1229, 266)
 			get_tree().change_scene_to_file("res://lava_zone.tscn")
 
 func _on_shop_detection_body_entered(body):
