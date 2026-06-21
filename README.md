@@ -62,9 +62,10 @@ Explore interconnected levels, defeat enemies, unlock upgrades, and progress thr
 - GDScript
 
 ## Screenshots
-
-_Add gameplay screenshots here._
-
-## Demo
-
-_Add gameplay video link here._
+<img src="start.png" width="500">
+<img src="introduction.png" width="500">
+<img src="lava.png" width="500">
+<img src="lava2.png" width="500">
+<img src="boss.png" width="500">
+<img src="boss_2.png" width="500">
+<img src="end_game.png" width="500">
